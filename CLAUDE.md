@@ -123,15 +123,21 @@ Keep documentation current as work progresses:
 
 ### Current Implementation Status
 
+The working application is in `app/` (see `README.md` and `docs/STATUS.md` for full detail).
+
 | Component | Status |
 |---|---|
 | Project instructions (`CLAUDE.md`) | Done |
 | Workflow skill (`organic-marketing-engine`) | Done |
-| Client folder template | Defined (created per client on onboarding) |
-| Google Drive integration | Not started |
-| Google Sheets integration | Not started |
-| Slack approval notifications | Not started |
-| Canva integration | Not started |
+| Web app: client brief form, admin dashboard, approvals | Done |
+| Workflow engine (13 stages, resumable) + SQLite database | Done |
+| Claude research & content generation | Built; needs `ANTHROPIC_API_KEY` for live use |
+| Google Drive / Sheets delivery | Built (OAuth, `drive.file`); not yet tested on a live account |
+| Slack approval notifications | Built (Incoming Webhook); not yet tested on a live workspace |
+| Canva integration | Not built (creative briefs only) |
+| Social publishing | Intentionally not built |
+
+Runtime client data is stored under `data/clients/<client-slug>/` (git-ignored), using the folder layout in Section 5.
 
 ---
 

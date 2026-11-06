@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block title %}Social Media Brief{% endblock %}
+{% block main_class %}narrow{% endblock %}
+{% macro f(name, label, hint="", type="text", required=False) -%}
+  <label for="{{ name }}">{{ label }}{% if required %} *{% endif %} {% if hint %}<span class="hint">— {{ hint }}</span>{% endif %}</label>
+  <input type="{{ type }}" id="{{ name }}" name="{{ name }}" value="{{ (values or {}).get(name, '') }}" {% if required %}required{% endif %}>
+{%- endmacro %}
+{% macro t(name, label, hint="", required=False) -%}
+  <label for="{{ name }}">{{ label }}{% if required %} *{% endif %} {% if hint %}<span class="hint">— {{ hint }}</span>{% endif %}</label>
+  <textarea id="{{ name }}" name="{{ name }}" {% if required %}required{% endif %}>{{ (values or {}).get(name, '') }}</textarea>
+{%- endmacro %}
+{% block content %}
+<h1>Organic Social Media Brief</h1>
+<p class="muted">Tell us about your business. We use this to research your brand, audience and competitors and to build your monthly organic social media plan. It takes about 10 minutes. Fields marked * are required; everything else helps us get it right first time.</p>
+
+{% if errors %}<div class="errors"><strong>Please complete:</strong> {{ errors|join(", ") }}</div>{% endif %}
+
+<form method="post" action="/brief">
+  <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Leave empty<input type="text" name="website_confirm" tabindex="-1" autocomplete="off"></label></div>
+
+  <fieldset><legend>Your business</legend>
+    <div class="grid2">
+      <div>{{ f("business_name", "Business name", required=True) }}</div>
+      <div>{{ f("website", "Website", "e.g. www.example.com", required=True) }}</div>
+      <div>{{ f("contact_name", "Your name") }}</div>
+      <div>{{ f("contact_email", "Your email", type="email", required=True) }}</div>
+      <div>{{ f("industry", "Industry / category", "e.g. specialty coffee shop", required=True) }}</div>
+      <div>{{ f("locations", "Locations served", "city, region, country or online") }}</div>
+    </div>
+    {{ t("products_services", "Main products or services") }}
+    <div class="grid2">
+      <div>{{ f("price_positioning", "Price positioning", "budget, mid-range, premium") }}</div>
+      <div>{{ f("current_offers", "Current offers or launches") }}</div>
+    </div>
+  </fieldset>
+
+  <fieldset><legend>Goals</legend>
+    <label for="primary_goal">Primary goal for social media</label>
+    <select id="primary_goal" name="primary_goal">
+      {% for g in ["Brand awareness", "Leads / enquiries", "Sales", "Community & engagement", "Customer retention", "Recruitment"] %}
+      <option {% if (values or {}).get('primary_goal') == g %}selected{% endif %}>{{ g }}</option>{% endfor %}
+    </select>
+    {{ t("targets_90_day", "What would success look like in 90 days?", "numbers if you have them") }}
+  </fieldset>
+
+  <fieldset><legend>Audience</legend>
+    {{ t("target_audience", "Who are your ideal customers?", "age, situation, needs, why they buy from you") }}
+    {{ f("languages", "Languages to post in") }}
+  </fieldset>
+
+  <fieldset><legend>Brand</legend>
+    {{ t("mission_values", "Mission and values") }}
+    {{ t("tone_of_voice", "Tone of voice", "e.g. warm, witty, expert, no slang") }}
+    <div class="grid2">
+      <div>{{ t("words_to_use", "Words / phrases to use") }}</div>
+      <div>{{ t("words_to_avoid", "Words / phrases / topics to avoid") }}</div>
+    </div>
+    {{ t("visual_guidelines", "Visual guidelines", "colours, fonts, logo usage, photo style, link to brand guide") }}
+    <label for="canva_brand_kit">Do you have a Canva Brand Kit?</label>
+    <select id="canva_brand_kit" name="canva_brand_kit"><option>Not sure</option><option>Yes</option><option>No</option></select>
+  </fieldset>
+
+  <fieldset><legend>Social channels &amp; posting plan</legend>
+    {{ t("social_handles", "Your social media profiles", "links or @handles for each platform") }}
+    {{ t("what_worked", "What has worked or not worked before?") }}
+    <label>Posts per week on each platform <span class="hint">— leave 0 for platforms you don't use</span></label>
+    <div class="grid4">
+      {% for p in platforms %}
+      <div><label for="cadence_{{ p }}" style="font-weight:400">{{ p }}</label>
+      <input type="number" min="0" max="7" id="cadence_{{ p }}" name="cadence_{{ p }}" value="{{ (values or {}).get('cadence_' ~ p, 3 if p == 'Instagram' else 0) }}"></div>
+      {% endfor %}
+    </div>
+    <div class="grid2">
+      <div><label for="target_month">Month to plan *</label><input type="month" id="target_month" name="target_month" value="{{ default_month }}" required></div>
+      <div>{{ f("timezone", "Your time zone", "e.g. Europe/London") }}</div>
+    </div>
+  </fieldset>
+
+  <fieldset><legend>Competitors</legend>
+    {{ t("competitors_known", "Competitors you know about", "names or websites") }}
+  </fieldset>
+
+  <fieldset><legend>Rules &amp; resources</legend>
+    {{ t("compliance_notes", "Legal or compliance rules", "e.g. regulated claims, disclaimers") }}
+    {{ t("sensitive_topics", "Sensitive topics to avoid") }}
+    <div class="grid2">
+      <div>{{ t("content_resources", "Photos / videos we can use", "links to a folder are great") }}</div>
+      <div>{{ t("on_camera_people", "Who can appear on camera?") }}</div>
+    </div>
+    <div class="grid2">
+      <div>{{ f("ugc_rights", "Can we reshare customer content (UGC)?") }}</div>
+      <div>{{ f("approvers", "Who approves content?", "names / roles") }}</div>
+    </div>
+    {{ t("additional_notes", "Anything else we should know?") }}
+  </fieldset>
+
+  <label style="font-weight:400"><input type="checkbox" name="consent" value="yes" required> I confirm the information above is accurate and can be used to research and plan our social media content. *</label>
+  <p><button type="submit">Submit brief</button></p>
+</form>
+{% endblock %}

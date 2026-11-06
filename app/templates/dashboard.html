@@ -1,0 +1,34 @@
+{% extends "admin_base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h1>Dashboard</h1>
+<div class="card">
+  <strong>Share this link with clients:</strong> <code>{{ brief_url }}</code>
+  <div class="row" style="margin-top:10px">
+    <span class="pill {{ 'ok' if health.claude else 'no' }}">Claude {{ 'connected' if health.claude else 'not configured' }}</span>
+    <span class="pill {{ 'ok' if health.google_connected else 'no' }}">Google Drive/Sheets {{ 'connected' if health.google_connected else 'not connected' }}</span>
+    <span class="pill {{ 'ok' if health.slack else 'no' }}">Slack {{ 'configured' if health.slack else 'not configured' }}</span>
+    <a href="/admin/settings">Manage →</a>
+  </div>
+  {% if not health.claude %}<p class="errors" style="margin-top:10px">Claude is not configured, so runs cannot do research or write content yet. Add the API key in Settings.</p>{% endif %}
+</div>
+
+<h2>Client runs</h2>
+{% if not runs %}<p class="muted">No briefs submitted yet. Open the brief form to submit a test client.</p>{% else %}
+<div class="table-wrap"><table>
+  <tr><th>#</th><th>Client</th><th>Month</th><th>Status</th><th>Current / next stage</th><th>Posts approved</th><th>Links</th><th>Created</th></tr>
+  {% for r in runs %}
+  <tr>
+    <td><a href="/admin/runs/{{ r.id }}">{{ r.id }}</a></td>
+    <td><a href="/admin/runs/{{ r.id }}">{{ r.client_name }}</a></td>
+    <td>{{ r.month }}</td>
+    <td><span class="pill {{ r.status }}">{{ r.status.replace('_', ' ') }}</span></td>
+    <td>{{ r.current_label if r.status != 'awaiting_approval' else 'All stages complete' }}</td>
+    <td>{{ r.n_approved }}/{{ r.n_posts }}</td>
+    <td>{% if r.sheet_url %}<a href="{{ r.sheet_url }}" target="_blank">Sheet</a>{% endif %} {% if r.drive_folder_url %}<a href="{{ r.drive_folder_url }}" target="_blank">Drive</a>{% endif %}</td>
+    <td class="muted">{{ r.created_at[:16].replace('T', ' ') }}</td>
+  </tr>
+  {% endfor %}
+</table></div>
+{% endif %}
+{% endblock %}

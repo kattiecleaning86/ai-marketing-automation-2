@@ -1,0 +1,48 @@
+{% extends "admin_base.html" %}
+{% block title %}Settings{% endblock %}
+{% block main_class %}narrow{% endblock %}
+{% block content %}
+<h1>Settings &amp; integrations</h1>
+{% if msg %}<p class="notice">{{ msg }}</p>{% endif %}
+
+<div class="card">
+  <h2 style="margin-top:0">Status</h2>
+  <ul>
+    <li>Claude (research &amp; writing): <span class="pill {{ 'ok' if health.claude else 'no' }}">{{ 'configured' if health.claude else 'not configured' }}</span> <span class="muted">model {{ health.model }}, key from {{ health.claude_source }}</span></li>
+    <li>Google Drive &amp; Sheets: <span class="pill {{ 'ok' if health.google_connected else 'no' }}">{{ 'connected' if health.google_connected else ('ready to connect' if health.google_configured else 'not configured') }}</span></li>
+    <li>Slack approval notifications: <span class="pill {{ 'ok' if health.slack else 'no' }}">{{ 'configured' if health.slack else 'not configured' }}</span> <span class="muted">from {{ health.slack_source }}</span></li>
+    <li>Canva: <span class="pill no">not integrated</span> <span class="muted">— creative briefs are written for designers to build in Canva manually.</span></li>
+    <li>Social media publishing: <span class="pill no">disabled by design</span> <span class="muted">— this system never posts content.</span></li>
+  </ul>
+</div>
+
+<form method="post" action="/admin/settings" class="card">
+  <h2 style="margin-top:0">Keys</h2>
+  <p class="muted">Leave a field empty to keep the current value. Values set as server environment variables always take priority.</p>
+  <label for="ANTHROPIC_API_KEY">Claude API key <span class="hint">— from console.anthropic.com → API Keys</span></label>
+  <input type="password" id="ANTHROPIC_API_KEY" name="ANTHROPIC_API_KEY" placeholder="{{ 'saved — enter a new key to replace' if health.claude else 'sk-ant-…' }}" autocomplete="off">
+  <label for="SLACK_WEBHOOK_URL">Slack Incoming Webhook URL <span class="hint">— https://hooks.slack.com/services/…</span></label>
+  <input type="password" id="SLACK_WEBHOOK_URL" name="SLACK_WEBHOOK_URL" placeholder="{{ 'saved — enter a new URL to replace' if health.slack else '' }}" autocomplete="off">
+  <label for="GOOGLE_CLIENT_ID">Google OAuth Client ID</label>
+  <input type="text" id="GOOGLE_CLIENT_ID" name="GOOGLE_CLIENT_ID" placeholder="{{ 'saved' if health.google_configured else '…apps.googleusercontent.com' }}" autocomplete="off">
+  <label for="GOOGLE_CLIENT_SECRET">Google OAuth Client Secret</label>
+  <input type="password" id="GOOGLE_CLIENT_SECRET" name="GOOGLE_CLIENT_SECRET" placeholder="{{ 'saved' if health.google_configured else '' }}" autocomplete="off">
+  <p><button>Save</button></p>
+</form>
+
+<div class="card">
+  <h2 style="margin-top:0">Google Drive &amp; Sheets</h2>
+  <p>When creating the OAuth client in Google Cloud, use type <strong>Web application</strong> and add this authorised redirect URI:</p>
+  <p><code>{{ redirect_uri }}</code></p>
+  <p class="muted">The app asks only for the <code>drive.file</code> permission: it can see and edit files it creates, nothing else in your Drive.</p>
+  <div class="row">
+    {% if health.google_configured %}<a class="btn" href="/admin/google/connect">{{ 'Reconnect' if health.google_connected else 'Connect' }} Google account</a>{% endif %}
+    {% if health.google_connected %}<form method="post" action="/admin/google/disconnect"><button class="secondary">Disconnect</button></form>{% endif %}
+  </div>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0">Slack</h2>
+  <form method="post" action="/admin/settings/slack-test"><button class="secondary" {% if not health.slack %}disabled{% endif %}>Send test message</button></form>
+</div>
+{% endblock %}

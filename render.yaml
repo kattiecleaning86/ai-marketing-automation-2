@@ -1,0 +1,20 @@
+# One-click deploy on Render (https://render.com): New → Blueprint → select this repository.
+services:
+  - type: web
+    name: organic-marketing-engine
+    runtime: docker
+    plan: starter            # a persistent disk requires a paid instance
+    healthCheckPath: /healthz
+    disk:
+      name: data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: ADMIN_PASSWORD
+        generateValue: true  # shown in the Render dashboard → Environment
+      - key: BASE_URL
+        sync: false          # set to your Render URL, e.g. https://organic-marketing-engine.onrender.com
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: DATA_DIR
+        value: /data
