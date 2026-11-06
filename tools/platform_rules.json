@@ -1,0 +1,17 @@
+{
+  "_note": "Platform limits used by qa_check.py. 'hard' limits fail QA; 'recommended' ones only warn. Update with a source whenever a platform changes its rules.",
+  "_sources": {
+    "Instagram hashtags 5": "Instagram cap of 5 hashtags per post/Reel announced Dec 2025 by Adam Mosseri — https://www.socialsamosa.com/news-2/instagram-hashtags-five-per-post-10923075 ; https://betanews.com/2025/12/19/instagram-puts-a-limit-on-hashtag-usage/ (checked 2026-11-06)",
+    "Threads hashtags 1": "Threads allows one tag per post — https://betanews.com/2025/12/19/instagram-puts-a-limit-on-hashtag-usage/ (checked 2026-11-06)",
+    "Caption lengths": "Long-standing published platform limits; re-verify when in doubt"
+  },
+  "caption_max_chars": {
+    "Instagram": 2200, "Facebook": 63206, "LinkedIn": 3000, "TikTok": 4000,
+    "X": 280, "Threads": 500, "Pinterest": 500, "YouTube Shorts": 5000
+  },
+  "hashtags_hard_max": {"Instagram": 5, "Threads": 1},
+  "hashtags_recommended_max": {
+    "Facebook": 3, "LinkedIn": 4, "TikTok": 5, "X": 2, "Pinterest": 5, "YouTube Shorts": 3
+  },
+  "pillar_mix_tolerance_percent": 15
+}

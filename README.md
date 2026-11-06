@@ -1,54 +1,71 @@
 # AI Organic Social Media Marketing Automation
 
-A web application that turns a client's brief into a complete, researched month of organic social media content, ready for human approval.
+A complete organic social media workflow that runs **inside Claude Code** on your existing Claude subscription.
+No API keys, no hosting, no paid servers, no external databases. Everything Claude produces is saved as files in this repository.
 
-**It never publishes anything.** Every post stays `Pending Review` until a person approves it. The app has no code that can post to social media.
+## How to run it for a new client
 
-## What happens when a client submits the brief form
+1. Open this repository in **Claude Code on the web** (claude.ai/code), the desktop app, or the CLI.
+2. Type:
 
-| # | Stage | How it works |
+   ```
+   /new-client Bean There Coffee | https://beantherecoffee.com | 2027-01
+   ```
+
+   That is: client name | website | month to plan (YYYY-MM).
+3. Claude runs all 12 stages on its own. It may ask you a few questions (tone, offers, approvers). If you don't answer, it continues with sensible defaults and marks each one "Assumed — confirm".
+4. When it's done, download from `clients/<client-name>/07_delivery/`:
+   - **`…_calendar_<month>.xlsx`**: the Excel calendar, with an Approval Status dropdown on every post
+   - **`…_approval-pack_<month>.docx`**: a Word document with everything (research, strategy, content, briefs, QA)
+5. Approve by typing, for example:
+
+   ```
+   /approve bean-there-coffee 2027-01: approve P01-P08, change P09: make it a carousel, reject P12
+   ```
+
+   Or fill in the Approval Status column in the Excel file and give it back to Claude.
+
+**Next month:** run `/new-client` again with the same name and the new month. The existing brief and files are kept.
+
+**No details yet?** Type `/new-client` with nothing after it. Claude asks for the basics, or creates a blank brief at `clients/<name>/00_onboarding/brief.md` for you or the client to fill in. The template is in `templates/client_brief_template.md`.
+
+## What Claude does (the 12 stages)
+| # | Stage | Output |
 |---|---|---|
-| 1 | Save client brief | Stored in the database and written to `00_onboarding/brief.md` |
-| 2 | Brand & website analysis | The app downloads the client's website and Claude researches the brand with live web search |
-| 3 | Audience & market research | Claude web search, then personas, market overview, key dates and regulations |
-| 4 | Competitor research | 3–5 direct competitors plus 1–2 aspirational brands, found with web search |
-| 5 | Organic social strategy | Pillars, KPIs, platform roles, cadence, hashtags, measurement plan |
-| 6 | Current trend research | Only trends backed by a dated web source are kept |
-| 7 | Monthly content calendar | Posting dates are worked out in code from the cadence; Claude plans each slot |
-| 8 | Captions, hooks, CTAs, hashtags | Written for each post |
-| 9 | Reel scripts & carousel copy | Scene-by-scene scripts and slide-by-slide copy |
-| 10 | Designer & video editor briefs | One creative brief per post (`CB-YYYY-MM-NN`) |
-| 11 | Quality check | Rule-based checks in code, then a review by Claude as editor, then one automatic fix pass |
-| 12 | Google Drive & Sheets delivery | Google Docs in a client folder, plus a calendar Sheet with an Approval Status dropdown |
-| 13 | Slack approval notification | A message to your channel with links for review |
+| 1 | Client brief | `00_onboarding/brief.md` |
+| 2 | Website and brand analysis | `01_research/brand_analysis.md` |
+| 3 | Industry and audience research, with personas | `01_research/audience_market.md` |
+| 4 | 3–5 competitors | `01_research/competitors.md` |
+| 5 | Organic social strategy | `02_strategy/organic_strategy.md` |
+| 6 | Instagram, Facebook, LinkedIn and industry trends | `01_research/trends_<month>.md` |
+| 7 | Research-backed monthly calendar | `03_calendar/…json` and `.csv` |
+| 8 | Hooks, captions, CTAs, hashtags, reel scripts, carousel slides | `04_content/…md` |
+| 9 | Designer and video-editor creative briefs | `05_creative_briefs/…md` |
+| 10 | Quality checks (automatic and editorial) | `06_qa/` |
+| 11 | Downloadable Excel and Word files | `07_delivery/` |
+| 12 | Approval package | `07_delivery/approval_summary.md`, committed and pushed |
 
-### How the system avoids made-up research
-Claude may only cite sources that the web search tool actually returned during the run. The app records those URLs itself, labels them `S1`, `S2`, and so on, and deletes any citation that doesn't match one. Points it can't back up are labelled `Assumption`. Every source is listed in `01_research/sources.md` with the date it was accessed.
+## Built-in safeguards
+- **Nothing is ever published.** Every post starts as "Pending Review". Only you can approve, and approvals record your name.
+- **No made-up research.** Every fact cites a source ID listed in `01_research/sources.md` with its URL and access date. Anything unverified is labelled "Assumption".
+- **Automatic QA.** The QA tool checks all 16 calendar fields, platform limits (including Instagram's 5-hashtag cap), scripts and slides, source IDs, unsourced statistics, duplicates and pillar mix.
 
-## Technology
-- Python with FastAPI, server-rendered pages, and a SQLite database. One process and one data folder.
-- Claude API (`claude-opus-5-5`) with the server-side web search and web fetch tools, and structured outputs.
-- Google Drive and Sheets through OAuth, using the `drive.file` scope only (the app can see only files it created).
-- Slack through an Incoming Webhook.
-- A background worker that runs one job at a time. Each stage is saved as it finishes, so a failed run can be retried from the stage that failed.
+## Example
+`clients/sample-harbor-hearth-bakery/` is a complete December 2026 run for a **fictional** bakery: 30 real sources, 20 posts, Excel and Word downloads, QA passed.
 
-## Pages
-- `/brief`: the public brief form to share with clients.
-- `/admin`: the dashboard (username `admin`, password from `ADMIN_PASSWORD`).
-- `/admin/runs/<id>`: stage progress, deliverables, per-post approval, sources and the activity log.
-- `/admin/settings`: API keys, Google connection and a Slack test.
+## Files in this repo
+| Path | Purpose |
+|---|---|
+| `CLAUDE.md` | Project rules Claude follows in every session |
+| `.claude/skills/organic-marketing-engine/SKILL.md` | The full 12-stage workflow |
+| `.claude/commands/new-client.md`, `approve.md` | The `/new-client` and `/approve` commands |
+| `templates/client_brief_template.md` | Blank client brief |
+| `tools/new_client.py` | Creates a client folder |
+| `tools/qa_check.py` | Automatic quality checks |
+| `tools/build_exports.py` | Builds the CSV, Excel and Word files |
+| `tools/platform_rules.json` | Platform limits (updated from research) |
+| `tests/` | Tests for the tools (`python -m pytest -q`) |
 
-## Setup
-See **[docs/SETUP.md](docs/SETUP.md)** for step-by-step instructions written for non-developers. Current implementation status is in [docs/STATUS.md](docs/STATUS.md).
-
-## Developers
-```bash
-python3 -m venv .venv && . .venv/bin/activate
-pip install -r requirements.txt
-cp .env.example .env   # set ADMIN_PASSWORD
-uvicorn app.main:app --reload
-python -m pytest -q
-```
-The tests use a fake Claude client (`tests/fakes.py`), so they run offline and cost nothing. The running app never uses the fake.
-
-Project rules live in [CLAUDE.md](CLAUDE.md). The workflow specification lives in [.claude/skills/organic-marketing-engine/SKILL.md](.claude/skills/organic-marketing-engine/SKILL.md).
+## Notes
+- The Excel and Word files are built with two free Python libraries. If Claude reports they are missing, it installs them with `pip install -r requirements.txt`.
+- Research uses Claude Code's built-in web search and page reading. If your cloud environment's network settings block a website, Claude uses search results instead and says so in the report. To let Claude read client and competitor websites directly, set the environment's network access to allow them (cloud environment menu → Edit → Network access).

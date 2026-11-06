@@ -1,283 +1,195 @@
 ---
 name: organic-marketing-engine
-description: End-to-end organic social media marketing workflow for a client — onboarding, brand/audience/market/competitor research, strategy, verified trend research, monthly content calendar, full content production (hooks, captions, CTAs, hashtags, reel scripts, carousel copy), creative briefs, QA, Google Drive/Sheets delivery, and Slack approval notification. Use whenever starting, continuing, or refreshing organic social work for any client or month. Never publishes content; everything ends at human approval.
+description: Runs the complete organic social media workflow for one client and month inside Claude Code. It collects the brief, researches the website, audience, 3–5 competitors and current Instagram/Facebook/LinkedIn and industry trends with verifiable sources, then writes the strategy, a monthly calendar, captions, hooks, CTAs, hashtags, reel scripts, carousel copy and designer briefs. It runs QA and saves all deliverables (Markdown, CSV, Excel, Word) in the repo for human approval. Use when the user gives a client name, website and target month, says "new client", or asks to plan or refresh a client's month. Never publishes.
+argument-hint: "<Client name> | <website> | <YYYY-MM>"
 ---
 
 # Organic Marketing Engine
 
-A reusable, repeatable workflow for producing a complete month of organic social media marketing for one client. Run all 12 stages in order. Each stage has inputs, actions, outputs, and an exit check. Do not skip stages; if a stage is blocked, record why in the client README and continue with whatever does not depend on it.
-
-## Ground Rules (always apply)
-
-- **No publishing.** This skill ends at "awaiting human approval". Never post, schedule, or arm any publishing tool.
-- **No fabrication.** Every statistic, trend, or market claim needs: claim, source, URL, publish date, access date. Unverifiable items are labelled `Assumption` or removed.
-- **One client at a time.** Work only inside `clients/<client-slug>/`. Never reuse another client's data.
-- **Ask only for what is necessary:** credentials, authorizations, permissions, business decisions. Batch questions, give a recommended default for each.
-- **Integrations only if authorized.** If Drive/Sheets/Slack/Canva access is not configured, produce local files and mark the delivery step as `Pending integration`.
+Runs the full workflow for **one client and one month** inside this Claude Code session. No API keys, hosting or paid services. Research uses `WebSearch` and `WebFetch` (or the `web-fetch` agent). Deliverables are files in `clients/<slug>/`.
 
 ## Inputs
 
-- Client name (required) and target month `YYYY-MM` (default: next calendar month).
-- Any brief, brand guidelines, assets, or links the operator supplies.
+Parse the arguments as `Client name | website | YYYY-MM`; commas also work as separators.
+- If the month is missing, use **next calendar month**.
+- If the website is missing, ask for it once. If there is none, continue and note it.
+- If no client is given, create a blank brief with `python tools/new_client.py "<name>" <website> <month>` and ask the operator to fill it in, or offer to interview them (Stage 1).
 
-## Outputs (per client, per month)
+## Ground rules (from CLAUDE.md)
+- **Never publish or schedule anything.** Every post's `approval_status` is `Pending Review`.
+- **Never fabricate.** Cite only sources you actually retrieved in this session. Record each in `sources.json` *as you use it*. Anything unverified is labelled `Assumption`.
+- **Ask only for business decisions and facts you can't find.** Put questions together and suggest defaults. Never ask for API keys or hosting.
+- Work inside `clients/<slug>/` only.
 
-```
-clients/<client-slug>/
-  00_onboarding/brief.md
-  01_research/brand_analysis.md
-  01_research/audience_market.md
-  01_research/competitors.md
-  01_research/trends_<YYYY-MM>.md
-  01_research/sources.md
-  02_strategy/organic_strategy.md
-  03_calendar/<client-slug>_calendar_<YYYY-MM>_v1.csv
-  04_content/<client-slug>_content_<YYYY-MM>_v1.md
-  05_creative_briefs/<client-slug>_briefs_<YYYY-MM>_v1.md
-  06_qa/<client-slug>_qa_<YYYY-MM>_v1.md
-  07_delivery/delivery_log.md
-  README.md
-```
+## Progress tracking
+Create a task list with the 12 stages below and mark each one as it is completed. Write each stage's file **before** starting the next, so an interrupted run can resume from the files already on disk. When re-running a month, read the existing files first and continue from the first stage that is missing or incomplete.
 
 ---
 
-## Stage 1 — Client Onboarding & Brief Collection
+## Stage 1 — Client brief
+1. Run `python tools/new_client.py "<Client name>" <website> <YYYY-MM>`. This creates the folders and `00_onboarding/brief.md` and never overwrites existing files.
+2. Fill in the brief from what the operator gave you and from public sources (website, public social profiles).
+3. If **cadence** isn't given, default to Instagram 3/week, Facebook 2/week, LinkedIn 1/week, and record that in "Assumptions applied".
+4. List missing essentials (tone, offers, approvers, sensitive topics) under **Open questions**, each with a default. Ask the operator once. If there's no reply, continue with the defaults marked `Assumed — confirm`.
 
-**Goal:** Capture everything needed to work autonomously for the rest of the workflow.
+## Stage 2 — Website & brand analysis → `01_research/brand_analysis.md`
+- `WebFetch` the homepage plus up to 3 key pages (about, services or products, contact). If a page fails, record that and use `WebSearch` results.
+- Use `WebSearch` for the brand's social profiles, reviews and press mentions.
+- Write: positioning, value proposition, brand personality, tone of voice (3 example lines), visual identity (as observed), current content themes, social presence, a social-focused SWOT, and gaps or inconsistencies. Tag each point Fact (source ID), Observation or Assumption.
 
-**Actions**
-1. Create the client folder structure above (slug = lowercase, hyphenated client name).
-2. Fill `00_onboarding/brief.md` with what is already known. Collect or confirm:
-   - Business: name, website, industry, locations served, products/services, price positioning, current offers.
-   - Goals: primary business goal (awareness, leads, sales, community, retention) and 90-day targets.
-   - Audience: who they serve, known customer segments, languages.
-   - Brand: mission, values, tone of voice, words to use/avoid, visual guidelines (logo, colors, fonts), existing Canva brand kit.
-   - Channels: active platforms + handles, posting history, follower counts (from public profiles), what has worked/not worked.
-   - Competitors the client already knows about.
-   - Constraints: compliance/legal limits, sensitive topics, approval chain, approvers' names, turnaround times.
-   - Content resources: photo/video library, people available to appear on camera, UGC rights.
-   - Cadence/budget decisions: posts per week per platform, production capacity.
-   - Access status: Google Drive folder, Google Sheet, Slack channel, Canva — authorized yes/no.
-3. Pull what you can from public sources (website, public social profiles) before asking anything.
-4. Compile only the **missing, essential** items into one batched question list for the operator, each with a recommended default.
+## Stage 3 — Industry & audience research → `01_research/audience_market.md`
+- Research the industry or market in the client's region (size, growth, consumer behaviour, seasonality), key dates in the target month, and regulations that affect marketing claims. Expect about 4–8 searches.
+- Build **2–4 personas**: goals, pain points, objections, buying triggers, preferred platforms, content habits, phrases they use. Base them on sources or the brief, and tag the basis.
+- Voice of customer: quote public reviews or forums **verbatim only**, with the source.
 
-**Exit check:** brief complete or gaps explicitly listed with defaults applied and marked `Assumed — confirm`.
+## Stage 4 — Competitor research → `01_research/competitors.md`
+- Identify **3–5 direct competitors** and 1–2 aspirational brands, including any the client named, using search.
+- For each: website, active platforms, visible formats, content pillars, tone, standout content, weaknesses. Never invent follower counts or engagement numbers; quote them only if a page shows them, with the date.
+- End with a comparison table, opportunities (white space), threats, and formats to adapt (never copy).
+- If fewer than 3 can be verified, say so; don't pad the list.
 
----
+## Stage 5 — Organic social strategy → `02_strategy/organic_strategy.md`
+- **Objectives and KPIs** per platform. Give a baseline only if known; otherwise write "Unknown — measure in month 1".
+- **3–5 content pillars**: purpose, `mix_percent` (adding up to 100), funnel stage, example topics.
+- Messaging pillars with proof points.
+- Platform roles, formats and cadence. Label posting windows as Sourced or Test hypothesis.
+- Engagement and community plan; hashtag tiers (branded, community, niche, broad); social SEO keywords.
+- Measurement plan and test-and-learn hypotheses.
 
-## Stage 2 — Brand Analysis
+## Stage 6 — Current trend research → `01_research/trends_<YYYY-MM>.md`
+Research, with dated sources, aiming for 90 days old or less:
+- **Instagram**, **Facebook** and **LinkedIn**: recent official feature and algorithm updates (official newsrooms and help centres first), format trends, recommended practices.
+- **Industry trends** for the client's category and region.
+- Cultural moments and seasonal events in the target month.
 
-**Goal:** Understand how the brand currently shows up and where it can win.
+For each trend record: trend, platform, evidence with source ID, relevance, pillar fit, brand-safety risk, shelf life. List the trends you rejected and why.
 
-**Actions**
-- Review website and each active social profile (bio, highlights, last 20–30 posts where visible).
-- Document: positioning statement, unique value proposition, brand personality, tone of voice (with 3 example lines), visual identity, current content themes, best-performing visible posts (by public engagement), gaps and inconsistencies.
-- Produce a brand SWOT focused on social.
+If a platform changed a limit (caption length, hashtag count), update `tools/platform_rules.json` and cite the source in the trends file.
 
-**Output:** `01_research/brand_analysis.md` — mark each point as Fact / Observation / Assumption.
+## Stage 7 — Monthly content calendar → `03_calendar/<slug>_calendar_<YYYY-MM>.json`
+1. Work out the posting dates from the cadence. Spread each platform across the week: 1/wk Tue; 2/wk Tue+Thu; 3/wk Mon+Wed+Fri; 4/wk Mon+Tue+Thu+Fri; 5/wk Mon–Fri. Cap at 40 posts unless the operator asks for more.
+2. Plan every slot: pillar (matching the strategy mix), objective, a specific topic, format (vary formats to suit the platform), and a **research rationale** that cites source IDs and explains "why this, why now". Anchor posts to key dates and verified trends.
+3. Write the JSON using the schema below. IDs are `P01…`, and creative brief IDs are `CB-<YYYY-MM>-<NN>` with matching numbers.
 
----
+## Stage 8 — Content production (same JSON)
+For every post write:
+- `hook` plus 2 `alt_hooks`;
+- a platform-ready `caption` in the brand voice;
+- one `cta` aligned with the objective;
+- `hashtags`: each starts with `#`, CamelCase, kept within `platform_rules.json`;
+- `alt_text` for images.
 
-## Stage 3 — Audience & Market Research
+Then add the script:
+- **Reel / Story / Video:** a full scene-by-scene `script` (time, visual or shot, on-screen text, voiceover or dialogue, audio note, licensed audio only), plus `closing_cta` and `subtitle_note`.
+- **Carousel:** slide-by-slide copy, from a cover hook slide through value slides to a CTA slide, 5–10 slides, readable on mobile.
+- Other formats: `{"type": "none"}`.
 
-**Goal:** Define who the content is for and what they care about.
+Only include statistics that appear in a cited source.
 
-**Actions**
-- Build 2–4 audience personas: demographics (only from sources or client data), goals, pain points, objections, buying triggers, content they consume, preferred platforms, language/phrases they use.
-- Research the market: category size/growth (sourced), seasonality, key dates/holidays/events for the target month and region, regulatory notes.
-- Mine verifiable voice-of-customer signals: public reviews, comments, forums, Q&A — quote only what is public and attribute it.
+## Stage 9 — Creative briefs (same JSON, `creative_brief` object)
+Write `visual_direction` (one paragraph) and a brief a designer can work from without follow-up questions:
+- summary; specs (aspect ratio, pixel size, duration, file type, safe zones, frame or slide count);
+- key message; on-screen copy; mood and style (describe references, never copy them);
+- colour palette, typography, brand assets (Canva Brand Kit if the client has one);
+- shot list or layout; audio direction; accessibility (captions, contrast, alt text);
+- dos and don'ts; deadline; reviewer.
 
-**Output:** `01_research/audience_market.md` with sources logged in `01_research/sources.md`.
+## Stage 10 — Quality checks
+1. Run `python tools/build_exports.py clients/<slug> <YYYY-MM>`, then `python tools/qa_check.py clients/<slug> <YYYY-MM>`.
+2. Fix every **FAIL** in the JSON and re-run until there are 0 failures. Fix warnings where it makes sense, or explain why one is acceptable.
+3. Editorial review of every post, as a strict senior editor:
+   - claims backed by sources or the brief; no invented client facts;
+   - no health, financial or legal claims; avoided words respected;
+   - brand voice; grammar and spelling; inclusive language; cultural sensitivity;
+   - audio and copyright; accessibility; hook and CTA strength.
 
----
+   Fix the problems, then write `06_qa/<slug>_qa_<YYYY-MM>.md` with the checklist results, the issues you fixed, and any open risks that need the operator's decision.
 
-## Stage 4 — Competitor Research
+## Stage 11 — Files & downloads
+1. Make sure `01_research/sources.json` is complete (every cited ID, with URL and access date).
+2. Run `python tools/build_exports.py clients/<slug> <YYYY-MM>` again. If libraries are missing, run `pip install -r requirements.txt` first. It produces:
+   - `01_research/sources.md` (source table generated from `sources.json`)
+   - `03_calendar/…csv`, `04_content/…md`, `05_creative_briefs/…md`
+   - `07_delivery/<slug>_calendar_<YYYY-MM>.xlsx`: calendar, summary and sources sheets, with an **Approval Status dropdown**
+   - `07_delivery/<slug>_approval-pack_<YYYY-MM>.docx`: every document in one Word file
+3. Run `python tools/qa_check.py …` one last time (it must show 0 failures) and `python -m pytest -q`.
 
-**Goal:** Find white space and proven formats.
-
-**Actions**
-- Identify 3–5 direct competitors and 1–2 aspirational/adjacent brands (client-named + researched).
-- For each: platforms, approx. posting frequency, formats used, content pillars, tone, visible engagement on recent posts, standout posts, weaknesses.
-- Summarize in a comparison table, then list: opportunities (gaps), threats, formats/angles to adapt (never copy).
-
-**Output:** `01_research/competitors.md`.
-
----
-
-## Stage 5 — Organic Social Media Strategy
-
-**Goal:** A clear, client-specific plan that every post maps back to.
-
-**Define**
-- **Objectives & KPIs** per platform (e.g. reach, saves, shares, profile visits, link clicks, DMs, follower growth, engagement rate) with baseline (if known) and target.
-- **Positioning & messaging pillars** — key messages and proof points.
-- **Content pillars** (3–5) with purpose, % of mix, and example topics. e.g. Educate / Inspire / Behind-the-scenes / Community & UGC / Offer.
-- **Platform strategy:** role of each platform, formats, cadence, best posting windows (sourced or from client data; otherwise mark as test hypothesis).
-- **Funnel mapping:** awareness / consideration / conversion / loyalty per pillar.
-- **Engagement & community plan:** reply guidelines, comment prompts, collaboration/creator ideas.
-- **Hashtag & keyword strategy:** branded, community, niche, broad tiers; social SEO keywords.
-- **Measurement plan:** what to track, review cadence, test-and-learn hypotheses.
-
-**Output:** `02_strategy/organic_strategy.md`.
-
----
-
-## Stage 6 — Current Trend Research
-
-**Goal:** Ground the month in what is actually current and relevant.
-
-**Actions**
-- Research, with dated verifiable sources: platform feature/algorithm updates (official newsrooms/help centers), format trends, cultural moments and relevant seasonal events for the target month, industry-specific conversations, trending audio/formats where they can be verified.
-- For each trend record: trend, platform, evidence (source + URL + date + access date), relevance to the client, fit with pillars, risk/brand-safety notes, shelf life.
-- Reject trends that cannot be verified or do not fit the brand. **Never invent a trend.** If live research tools are unavailable, state that and mark the trend section `Pending verification`.
-
-**Output:** `01_research/trends_<YYYY-MM>.md` + entries in `01_research/sources.md`.
-
----
-
-## Stage 7 — Monthly Content Calendar
-
-**Goal:** A complete, balanced posting plan for the month.
-
-**Actions**
-- Apply the cadence agreed in Stage 1 across each platform.
-- Balance pillar mix and funnel stages per the strategy; avoid repeating topics or hooks.
-- Anchor posts to key dates/events and verified trends from Stage 6.
-- Every entry must include **all** of the fields below.
-
-### Required Calendar Fields
-
-| # | Field | Description |
-|---|---|---|
-| 1 | **Date** | Publish date `YYYY-MM-DD` (+ suggested time and time zone if known) |
-| 2 | **Platform** | Instagram, Facebook, TikTok, LinkedIn, YouTube Shorts, Pinterest, X, Threads, etc. |
-| 3 | **Content pillar** | One of the strategy's pillars |
-| 4 | **Objective** | Awareness / Engagement / Traffic / Leads / Sales / Community / Retention |
-| 5 | **Topic** | Specific subject of the post |
-| 6 | **Research rationale** | Why this post, why now — cite the research finding, persona insight, competitor gap, or trend (with source ID from `sources.md`) |
-| 7 | **Hook** | First line / first 1–3 seconds that stops the scroll |
-| 8 | **Caption** | Full, platform-ready caption |
-| 9 | **CTA** | One clear call-to-action |
-| 10 | **Hashtags** | Platform-appropriate set, tiered per strategy |
-| 11 | **Format** | Reel / Short / Carousel / Static image / Story / Video / Text post / Live / etc. |
-| 12 | **Reel script or carousel slide copy** | Scene-by-scene script (time, visual, on-screen text, VO/dialogue, audio) or slide-by-slide copy; `N/A` only for formats without either |
-| 13 | **Visual direction** | Look, composition, colours, on-screen text style, assets to use |
-| 14 | **Creative brief** | Reference ID linking to the full brief in `05_creative_briefs/` (e.g. `CB-2026-12-07`) plus a one-line summary |
-| 15 | **KPI objective** | Primary metric + target for this post (e.g. "Saves ≥ 3% of reach") |
-| 16 | **Approval status** | `Pending Review` by default; later `Changes Requested` / `Approved` / `Rejected` — set only by a human |
-
-**Output:** `03_calendar/<client-slug>_calendar_<YYYY-MM>_v1.csv` with exactly these columns in this order:
-
-```
-Date,Platform,Content Pillar,Objective,Topic,Research Rationale,Hook,Caption,CTA,Hashtags,Format,Reel Script / Carousel Slide Copy,Visual Direction,Creative Brief,KPI Objective,Approval Status
-```
-
-Also add a short calendar overview (pillar mix %, platform split, key dates) at the top of the content document.
+## Stage 12 — Prepare for approval
+1. Write `07_delivery/approval_summary.md` with:
+   - posts by platform and pillar;
+   - key dates and trends used;
+   - QA result;
+   - open questions and assumptions to confirm;
+   - how to approve: set the Approval Status per post in the Excel file, or tell Claude "approve P01–P05, change P06: …";
+   - the statement: **"Nothing has been published."**
+2. Update `clients/<slug>/README.md` with the status.
+3. `git add clients/<slug> tools/platform_rules.json`, then commit (`<Client> — organic social plan <YYYY-MM>`) and push to the working branch.
+4. Reply to the operator in plain language: what was produced, the file paths (Excel and Word first), what needs their decision, and how to approve.
 
 ---
 
-## Stage 8 — Complete Content Production
+## Approval follow-ups
+When the operator says, for example, "approve P01–P05, change P07 to a carousel":
+- set `approval_status` and `approved_by` (the operator's name or "Operator"), plus `reviewer_comments` where given;
+- for change requests, rewrite the post and keep it `Pending Review`;
+- then re-run the exports and QA, and commit.
 
-**Goal:** Every calendar entry is fully written and ready for design/editing.
-
-**For each entry produce**
-- **Hooks:** primary hook + 2 alternates for A/B consideration.
-- **Caption:** final copy written in brand voice, with line breaks, platform-appropriate length, accessibility in mind (camel-case hashtags, minimal emoji clutter).
-- **CTA:** specific and aligned to the objective.
-- **Hashtags:** within platform norms; branded + niche + community mix; no banned or irrelevant tags.
-- **Reel/short-form script:** duration, scene-by-scene table (timestamp, shot/visual, on-screen text, voiceover/dialogue, audio/sound note), closing CTA, caption/subtitle note.
-- **Carousel copy:** slide-by-slide (cover hook slide → value slides → CTA slide), with word counts suitable for mobile.
-- **Alt text** for images and **subtitles** note for video.
-
-**Output:** `04_content/<client-slug>_content_<YYYY-MM>_v1.md`, organized by date, and synced into the calendar CSV.
+Approval only marks content as ready. You still never post it.
 
 ---
 
-## Stage 9 — Creative Briefs (Designers & Video Editors)
+## Calendar JSON schema
 
-**Goal:** Hand-off documents that let a designer or editor produce the asset without follow-up questions.
-
-**Each brief (ID `CB-<YYYY-MM>-<NN>`) includes**
-- Post reference (date, platform, format) and objective/KPI.
-- Deliverable specs: dimensions/aspect ratio, duration, file type, safe zones, number of frames/slides.
-- Key message and hook; full on-screen copy / slide copy.
-- Visual direction: mood, style references (describe; link only to properly sourced references), colour palette, typography, brand assets, Canva template link if available.
-- Shot list (video): scenes, angles, b-roll, talent, props, locations.
-- Audio: music/sound direction (use licensed or platform-library audio only).
-- Accessibility: captions, contrast, alt text.
-- Do / Don't list from brand guidelines.
-- Deadline and reviewer.
-
-**Output:** `05_creative_briefs/<client-slug>_briefs_<YYYY-MM>_v1.md`.
-
----
-
-## Stage 10 — Quality Assurance
-
-**Goal:** Nothing ships with errors, fabricated claims, or brand drift.
-
-Run and record every check (Pass / Fix / Fail with notes):
-
-- [ ] **Sources:** every stat/trend has a verifiable, dated source in `sources.md`; no fabricated data.
-- [ ] **Client facts:** offers, prices, product details match the brief.
-- [ ] **Completeness:** all 16 calendar fields filled for every entry.
-- [ ] **Strategy alignment:** each post maps to pillar, objective, funnel stage, KPI; pillar mix matches strategy.
-- [ ] **Brand voice & visuals:** tone, vocabulary, do/don't lists respected.
-- [ ] **Platform specs:** caption length, hashtag counts, aspect ratios, durations.
-- [ ] **Language:** spelling, grammar, clarity, inclusive language, localisation.
-- [ ] **Compliance & risk:** no misleading/health/financial/legal claims; disclosures; copyright and audio licensing; brand-safety of trends.
-- [ ] **Accessibility:** alt text, subtitles, readable contrast, camel-case hashtags.
-- [ ] **Uniqueness:** no duplicate hooks/topics; no copied competitor content.
-- [ ] **Approval status:** every entry is `Pending Review`.
-
-Fix everything fixable, re-check, then write `06_qa/<client-slug>_qa_<YYYY-MM>_v1.md` with a summary, issues found/fixed, and any open risks needing human decisions.
-
-**Exit check:** zero open `Fail` items, or failures escalated to the operator.
-
----
-
-## Stage 11 — Google Drive & Google Sheets Delivery
-
-**Prerequisite:** operator-authorized Google access. If not available, skip to local delivery and log `Pending integration`.
-
-**Actions**
-1. In Google Drive, create/find `Organic Social — <Client Name>` and mirror the local folder structure; upload research, strategy, content, briefs, and QA docs for the month.
-2. In Google Sheets, create/update `<Client Name> — Content Calendar` with one tab per month (`YYYY-MM`), columns exactly as in Stage 7, header frozen, `Approval Status` as a dropdown (`Pending Review`, `Changes Requested`, `Approved`, `Rejected`), and a column for reviewer comments.
-3. Share only with authorized people/permissions agreed by the operator.
-4. Record all links, file versions, and timestamps in `07_delivery/delivery_log.md`.
-
----
-
-## Stage 12 — Slack Approval Notification
-
-**Prerequisite:** operator-authorized Slack access and a designated channel/approvers. If not available, draft the message in `07_delivery/delivery_log.md` for the operator to send.
-
-**Message template**
-```
-:calendar: <Client Name> — Organic Social Content for <Month YYYY> is ready for review.
-
-• Posts: <N> across <platforms>
-• Pillar mix: <summary>
-• Key dates/trends covered: <summary>
-• QA: passed (<N> issues fixed, <N> open items needing decisions)
-
-:page_facing_up: Calendar (Sheet): <link>
-:file_folder: Drive folder: <link>
-
-Please review and set Approval Status for each post in the Sheet
-(Approved / Changes Requested / Rejected) by <date>.
-Nothing will be published until it is marked Approved.
+```json
+{
+  "client": "Client Name",
+  "month": "2026-12",
+  "timezone": "America/Los_Angeles",
+  "pillars": [{"name": "Educate", "mix_percent": 40, "funnel_stage": "Awareness"}],
+  "posts": [{
+    "id": "P01",
+    "date": "2026-12-01",
+    "time": "11:00",
+    "platform": "Instagram",
+    "content_pillar": "Educate",
+    "objective": "Awareness",
+    "topic": "…",
+    "research_rationale": "Why this post, why now …",
+    "source_ids": ["S3", "S7"],
+    "hook": "…",
+    "alt_hooks": ["…", "…"],
+    "caption": "…",
+    "cta": "…",
+    "hashtags": ["#BrandName", "#NicheTag"],
+    "format": "Carousel",
+    "script": {
+      "type": "carousel",
+      "slides": [{"n": 1, "headline": "…", "body": "…"}],
+      "scenes": [{"time": "0-3s", "visual": "…", "on_screen_text": "…", "voiceover": "…", "audio": "…"}],
+      "duration_seconds": 0,
+      "closing_cta": "…",
+      "subtitle_note": "…"
+    },
+    "alt_text": "…",
+    "visual_direction": "…",
+    "creative_brief": {
+      "id": "CB-2026-12-01", "summary": "…", "specs": "…", "key_message": "…", "on_screen_copy": "…",
+      "mood_and_style": "…", "colour_palette": "…", "typography": "…", "assets": "…",
+      "shot_list": ["…"], "audio_direction": "…", "accessibility": "…",
+      "dos": ["…"], "donts": ["…"], "deadline": "2026-11-24", "reviewer": "…"
+    },
+    "kpi_objective": "Saves ≥ 3% of reach",
+    "approval_status": "Pending Review",
+    "approved_by": "",
+    "reviewer_comments": ""
+  }]
+}
 ```
 
-**Rules**
-- Slack is for notification and approval collection only — it must never trigger publishing.
-- Record send time and recipients in the delivery log.
+Formats: `Reel`, `Carousel`, `Static image`, `Story`, `Video`, `Text post`. Objectives: `Awareness`, `Engagement`, `Traffic`, `Leads`, `Sales`, `Community`, `Retention`.
 
----
-
-## Completion & Status Update
-
-At the end of every run:
-1. Update `clients/<client-slug>/README.md`: month, stage reached, approval state, open questions, blockers.
-2. Update the implementation status in `CLAUDE.md` / `docs/STATUS.md` if anything about the system changed.
-3. Report back to the operator in plain language: what was produced, where it is, what needs their decision or approval, and the recommended next step.
+## sources.json schema
+```json
+{"client": "…", "sources": [{"id": "S1", "title": "…", "publisher": "…", "url": "https://…",
+  "published": "2026-10-14", "accessed": "2026-11-06", "used_in": ["trends", "P03"], "note": "what it supports"}]}
+```

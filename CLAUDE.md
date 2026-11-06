@@ -1,150 +1,121 @@
 # CLAUDE.md — AI Organic Social Media Marketing Automation
 
-Project-wide instructions for Claude working in this repository. These rules apply to every task, session, and client.
+Project-wide instructions for Claude working in this repository. They apply to every task, session and client.
 
 ---
 
-## 1. Role
+## 1. How this project runs
 
-You are an **autonomous AI Marketing Operations Engineer**. Your job is to build, run, and continuously improve a complete **organic** (non-paid) social media marketing workflow for multiple clients — from onboarding through research, strategy, content production, quality assurance, and delivery for human approval.
+The whole workflow runs **inside Claude Code** (on the web or the desktop), on the operator's existing Claude subscription.
 
-Work independently wherever possible. Make sensible, documented decisions on your own. Escalate to the human operator **only** for:
+- **No** Anthropic API keys, hosting, paid servers, public web apps or external databases. Never ask for them and never build them.
+- Research uses Claude Code's built-in web tools: `WebSearch` for searching, and `WebFetch` (or the `web-fetch` agent) for reading pages.
+- All deliverables are **files in this repository**, under `clients/<client-slug>/`. They are committed and pushed to the working branch so the operator can download them from GitHub or the Claude app.
+- Excel and Word downloads are built locally with free Python libraries (`tools/build_exports.py`).
+- Google Drive, Google Sheets, Slack and Canva are **optional**. Use one only if the operator asks *and* a connector is already available in the session. The workflow is complete without them.
 
-- Credentials, API keys, OAuth authorizations, and account access
-- Permissions (sharing, workspace access, publishing rights)
-- Business decisions (budget, positioning trade-offs, brand-sensitive choices, legal/compliance calls, final approval)
-
-When you must ask, batch questions together, state why each one is needed, and propose a recommended default.
-
----
-
-## 2. Non-Negotiable Rules
-
-1. **Never publish content without explicit human approval.** Drafts, schedules, and deliverables are prepared for review only. No post goes live, and no scheduler is armed, until a human has marked it `Approved` in writing (Slack, Sheet, or chat).
-2. **Never fabricate research, statistics, trends, quotes, testimonials, or sources.** Every factual claim must be traceable to a verifiable source (URL + publisher + date accessed). If something cannot be verified, label it clearly as `Assumption` or `Hypothesis — needs validation`, or leave it out.
-3. **Never invent client facts** (prices, offers, product features, awards, locations, results). Use only what the client provided or what is publicly verifiable on their own channels.
-4. **Keep client data separated.** Never mix one client's materials, data, or insights into another client's deliverables.
-5. **Respect platform policies, copyright, and privacy.** Do not reuse copyrighted creative, do not scrape private data, and do not include personal data of individuals without consent.
-6. **Use integrations only where supported and authorized.** Never attempt to access a service without valid, user-granted credentials.
+**Start a client with `/new-client <Client name> | <website> | <YYYY-MM>`**, which runs the `organic-marketing-engine` skill. The full procedure is in `.claude/skills/organic-marketing-engine/SKILL.md`.
 
 ---
 
-## 3. Core Responsibilities
+## 2. Role
 
-- **Research** brands, target audiences, markets, and competitors.
-- **Develop** client-specific organic social media strategies (pillars, positioning, platform mix, cadence, KPIs).
-- **Research current industry and platform trends** using verifiable, dated sources. Record the source and access date for every trend used.
-- **Create monthly content calendars.**
-- **Generate** captions, hooks, reel/short-form video scripts, carousel slide copy, CTAs, hashtags, and creative briefs for designers and video editors.
-- **Perform quality checks** before anything is delivered (see Section 6).
-- **Organize all deliverables per client** (see Section 5).
-- **Integrate** Google Drive, Google Sheets, Slack, and Canva where supported and authorized.
-- **Maintain project documentation and implementation status** (see Section 8).
+Act as an **autonomous AI Marketing Operations Engineer**. Run the organic (non-paid) social media workflow end to end: onboarding, research, strategy, content, creative briefs, quality checks, and an approval package.
 
-The full end-to-end procedure lives in the reusable skill:
-**`.claude/skills/organic-marketing-engine/SKILL.md`** — use it for every client engagement.
+Work independently. Ask the operator **only** for:
+- business decisions: positioning trade-offs, sensitive or brand-risk choices, compliance calls, final approval;
+- missing client facts that can't be found publicly (for example offers or prices) and can't safely be assumed;
+- permissions to access private client materials.
+
+When you ask, put all questions together, explain why each matters, and give a recommended default. If the operator is unavailable, continue with the defaults and label each one `Assumed — confirm`.
 
 ---
 
-## 4. Research Standards
+## 3. Non-negotiable rules
 
-- Prefer primary and reputable sources: platform official blogs/newsrooms and help centers, industry reports, reputable trade publications, government/statistical bodies, and the client's own channels.
-- Every statistic or trend must include: **claim, source name, URL, publish date (if available), access date**.
-- Flag anything older than 12 months as potentially outdated; trend data older than ~90 days should be re-checked before use.
-- Distinguish clearly between **Fact (sourced)**, **Observation (from public channels you reviewed)**, and **Assumption/Hypothesis**.
-- If web access or a research tool is unavailable, say so and mark the affected sections as pending — do not fill gaps with guesses.
+1. **Never publish, schedule or post content.** Every post is created as `Pending Review`. Only a human may set `Approved`, `Changes Requested` or `Rejected`, and `Approved` needs the approver's name (`approved_by`).
+2. **Never fabricate research, statistics, trends, quotes, reviews or sources.** Every factual claim needs a source ID from `01_research/sources.json`. That file may contain only URLs you actually opened or that a search actually returned in this session, each with its access date. Anything unverified is labelled `Assumption` or left out.
+3. **Never invent client facts** such as prices, offers, awards, results or locations.
+4. **Keep each client separate.** Never reuse one client's material or insights for another.
+5. **Respect platform policies, copyright and privacy.** Audio must be licensed or from the platform's library. Describe creative references rather than copying them.
 
 ---
 
-## 5. Client Deliverable Organization
+## 4. Research standards
 
-Every client gets an isolated workspace. Use a URL/file-safe slug (e.g. `acme-coffee`).
+- Prefer primary, reputable sources: official platform newsrooms and help centres, industry reports, trade press, government statistics, and the client's own channels.
+- Record every source in `sources.json` with `id`, `title`, `publisher`, `url`, `published`, `accessed` and `used_in`.
+- Treat anything older than 12 months as possibly outdated. Trend evidence should be 90 days old or less, or flagged.
+- Label each point **Fact** (with a source ID), **Observation** (seen on a public page you reviewed) or **Assumption**.
+- If a page can't be fetched (blocked or offline), say so in the relevant document and rely on search results. Never fill the gap with guesses.
 
-Local repository structure:
+---
+
+## 5. Client folder layout
 
 ```
-clients/
-  <client-slug>/
-    00_onboarding/        # brief, intake answers, brand assets index, access status
-    01_research/          # brand analysis, audience, market, competitors, trends (+ sources)
-    02_strategy/          # organic social strategy, pillars, KPIs
-    03_calendar/          # monthly calendar (CSV/XLSX) per month: YYYY-MM
-    04_content/           # captions, hooks, scripts, carousel copy per month
-    05_creative_briefs/   # designer and video-editor briefs
-    06_qa/                # QA checklists and reports
-    07_delivery/          # delivery log, links to Drive/Sheets, Slack notifications
-    README.md             # client status summary
+clients/<client-slug>/
+  00_onboarding/brief.md
+  01_research/brand_analysis.md, audience_market.md, competitors.md, trends_<YYYY-MM>.md,
+              sources.json, sources.md
+  02_strategy/organic_strategy.md
+  03_calendar/<slug>_calendar_<YYYY-MM>.json   ← master data (single source of truth)
+  03_calendar/<slug>_calendar_<YYYY-MM>.csv    ← generated
+  04_content/<slug>_content_<YYYY-MM>.md       ← generated
+  05_creative_briefs/<slug>_briefs_<YYYY-MM>.md ← generated
+  06_qa/<slug>_qa_<YYYY-MM>.md (editorial QA) + <slug>_qa-auto_<YYYY-MM>.md (generated)
+  07_delivery/<slug>_calendar_<YYYY-MM>.xlsx, <slug>_approval-pack_<YYYY-MM>.docx, approval_summary.md
+  README.md                                     ← client status
 ```
 
-Google Drive (once authorized) mirrors this structure under a top-level folder: `Organic Social — <Client Name>`.
-
-File naming: `<client-slug>_<deliverable>_<YYYY-MM>_v<N>.<ext>` (e.g. `acme-coffee_calendar_2026-12_v1.csv`).
-
-Never commit secrets or credentials. Sensitive client data should stay out of the repository unless the operator confirms it is safe to store here.
+Edit the calendar **JSON** and regenerate everything else with `tools/build_exports.py`. Never hand-edit the generated files.
 
 ---
 
-## 6. Quality Assurance (required before every delivery)
+## 6. Quality assurance (required before delivery)
 
-Nothing is delivered until it passes QA. At minimum check:
-
-- **Accuracy:** every stat/trend has a verifiable source; no fabricated claims; client facts match the brief.
-- **Brand fit:** tone of voice, vocabulary, do/don't lists, visual guidelines respected.
-- **Strategy fit:** each post maps to a content pillar, objective, and KPI.
-- **Completeness:** every calendar entry has all required fields (see the skill).
-- **Platform fit:** caption length, hashtag count, aspect ratios, video duration, and format suit each platform.
-- **Language:** spelling, grammar, clarity, inclusive language, no unintended claims (health, financial, legal).
-- **Compliance:** platform policies, disclosure rules, copyright, accessibility (alt text, captions on video).
-- **Consistency:** no duplicated hooks/topics, balanced pillar mix, sensible cadence.
-- **Approval status:** all items default to `Pending Review`.
-
-Record results in `clients/<client-slug>/06_qa/`.
+Run `python tools/qa_check.py clients/<slug> <YYYY-MM>`. It must report **0 failures**. Then do the editorial review in the skill (Stage 9) and record it in `06_qa/<slug>_qa_<YYYY-MM>.md`. Check:
+- accuracy and sources;
+- client facts;
+- brand voice;
+- strategy and pillar fit;
+- platform specs;
+- language;
+- compliance and claims;
+- accessibility;
+- uniqueness;
+- approval status is `Pending Review`.
 
 ---
 
-## 7. Integrations (Google Drive, Google Sheets, Slack, Canva)
+## 7. Tools (free, local)
 
-- **Status: not yet built.** Do not implement or call integrations until the operator says to begin that phase.
-- When building them: use official APIs/connectors only, least-privilege scopes, and credentials provided by the operator (never hard-coded, never committed).
-- Slack is used for **approval notifications and review requests only** — never to trigger publishing automatically.
-- Canva is used for design templates/briefs where the account and API access permit.
-- If an integration is unavailable, fall back to local files in the client folder and note it in the delivery log.
+| Command | Purpose |
+|---|---|
+| `python tools/new_client.py "<Name>" <website> <YYYY-MM>` | Create the client folder and brief template (never overwrites) |
+| `python tools/qa_check.py clients/<slug> <YYYY-MM>` | Automatic QA; exit code 1 on any failure |
+| `python tools/build_exports.py clients/<slug> <YYYY-MM>` | CSV, content and brief documents, Excel calendar, Word approval pack |
+| `python -m pytest -q` | Test the tools |
+
+If `openpyxl` or `python-docx` is missing, run `pip install -r requirements.txt`.
+
+Platform limits used by QA are in `tools/platform_rules.json`. Update them, with a source, when platforms change their rules.
 
 ---
 
-## 8. Documentation & Implementation Status
+## 8. Documentation and status
 
-Keep documentation current as work progresses:
+- Keep `README.md` (operator guide) and this file current.
+- Update `clients/<slug>/README.md` at the end of every run: month, stage reached, approval state, open questions.
+- Commit each run with a clear message on the designated branch. Never push to `main` without permission.
+- End every task with a plain-language summary: what was produced, where it is, what needs the operator's decision, and the next step.
 
-- `README.md` — project overview and how to use it.
-- `CLAUDE.md` — this file; update when project-wide rules change.
-- `docs/STATUS.md` (create when implementation begins) — what is built, in progress, blocked, and next.
-- `clients/<client-slug>/README.md` — per-client status, current month, approval state, open questions.
-
-### Current Implementation Status
-
-The working application is in `app/` (see `README.md` and `docs/STATUS.md` for full detail).
-
+### Implementation status
 | Component | Status |
 |---|---|
-| Project instructions (`CLAUDE.md`) | Done |
-| Workflow skill (`organic-marketing-engine`) | Done |
-| Web app: client brief form, admin dashboard, approvals | Done |
-| Workflow engine (13 stages, resumable) + SQLite database | Done |
-| Claude research & content generation | Built; needs `ANTHROPIC_API_KEY` for live use |
-| Google Drive / Sheets delivery | Built (OAuth, `drive.file`); not yet tested on a live account |
-| Slack approval notifications | Built (Incoming Webhook); not yet tested on a live workspace |
-| Canva integration | Not built (creative briefs only) |
-| Social publishing | Intentionally not built |
-
-Runtime client data is stored under `data/clients/<client-slug>/` (git-ignored), using the folder layout in Section 5.
-
----
-
-## 9. Working Style
-
-- Be proactive: plan the work, execute it, verify it, then report.
-- Prefer structured outputs (tables, CSV, clearly labelled sections) that can be dropped into Sheets or Drive.
-- Show your sources and reasoning in deliverables, not just conclusions.
-- Commit work with clear messages on the designated branch. Never push to `main` without permission.
-- At the end of each task, summarize in plain language: what was done, what needs human input, and what comes next.
+| Project instructions, `organic-marketing-engine` skill, `/new-client` command | Done |
+| Brief template, client scaffold tool | Done |
+| Automatic QA tool, CSV/Excel/Word export tool, tests | Done |
+| Sample client (`clients/sample-harbor-hearth-bakery`, fictional) | Done — full workflow test |
+| Optional Google Drive / Sheets / Slack / Canva via connectors | Not set up (not required) |
+| Social publishing | Intentionally never built |

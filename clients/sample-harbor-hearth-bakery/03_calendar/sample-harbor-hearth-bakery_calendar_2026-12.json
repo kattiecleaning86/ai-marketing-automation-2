@@ -1,0 +1,1691 @@
+{
+  "client": "Harbor & Hearth Bakery (FICTIONAL SAMPLE)",
+  "month": "2026-12",
+  "timezone": "America/Los_Angeles",
+  "pillars": [
+    {
+      "name": "Bake Craft & Education",
+      "mix_percent": 35,
+      "funnel_stage": "Awareness"
+    },
+    {
+      "name": "Holiday Table & Offers",
+      "mix_percent": 30,
+      "funnel_stage": "Conversion"
+    },
+    {
+      "name": "Neighbourhood & Community",
+      "mix_percent": 20,
+      "funnel_stage": "Loyalty"
+    },
+    {
+      "name": "Behind the Counter",
+      "mix_percent": 15,
+      "funnel_stage": "Consideration"
+    }
+  ],
+  "posts": [
+    {
+      "id": "P01",
+      "date": "2026-12-01",
+      "time": "08:30",
+      "platform": "LinkedIn",
+      "content_pillar": "Behind the Counter",
+      "objective": "Awareness",
+      "topic": "Owner's note: why we plan holiday baking weeks ahead",
+      "research_rationale": "LinkedIn company-page reach is reported to be declining, with owner/personal-profile posts and native content favoured; an owner-voiced story suits a reshare from Maya's profile (S6, S7). Preorder culture in Portland makes the planning story timely (S22).",
+      "source_ids": [
+        "S6",
+        "S7",
+        "S22"
+      ],
+      "hook": "Every December, our oven gets booked before our calendar does.",
+      "alt_hooks": [
+        "Holiday baking starts weeks before the holidays.",
+        "Small bakery, big December: here's how we plan it."
+      ],
+      "caption": "Every December, our oven gets booked before our calendar does.\n\nRunning a small bakery in the holiday season is mostly a planning exercise: how much flour, how many hands, how many hours of slow fermentation we can fit between now and the 24th. We'd rather tell you our limits early than sell out of your plans late.\n\nSo from today, holiday pie and bread preorders are open until December 20, with pickup December 22–24.\n\nIf you're planning a team breakfast or a client thank-you, message us — we'll tell you honestly what we can make well.\n\nLink to preorder in the first comment.",
+      "cta": "Message us about team or client orders — preorder link in the first comment.",
+      "hashtags": [
+        "#SmallBusiness",
+        "#Portland",
+        "#ShopLocal"
+      ],
+      "format": "Static image",
+      "script": {
+        "type": "none"
+      },
+      "alt_text": "The bakery owner writes a preorder schedule on a flour-dusted chalkboard beside the oven.",
+      "visual_direction": "Candid photo of the owner at a chalkboard planning schedule next to the oven; warm natural light, flour on the counter, harbour-blue apron.",
+      "creative_brief": {
+        "id": "CB-2026-12-01",
+        "summary": "Owner-at-work photo announcing preorders on LinkedIn.",
+        "specs": "1:1, 1200×1200, JPG/PNG",
+        "key_message": "We plan honestly so your holiday plans don't fall through.",
+        "on_screen_copy": "No text overlay (LinkedIn photo); optional small logo bottom-right.",
+        "mood_and_style": "Documentary, candid, warm; real working moment, not posed. Reference: editorial small-business portraiture.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Owner writing on chalkboard schedule, oven in soft focus",
+          "Close detail: hand with chalk, flour on fingers"
+        ],
+        "audio_direction": "N/A (image)",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Show a real working space",
+          "Keep it uncluttered"
+        ],
+        "donts": [
+          "No stock imagery",
+          "No fake 'sold out' signage",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-11-24",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Comments + reshares by owner network; ≥ 1 team-order enquiry (test target)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P02",
+      "date": "2026-12-01",
+      "time": "11:00",
+      "platform": "Instagram",
+      "content_pillar": "Holiday Table & Offers",
+      "objective": "Sales",
+      "topic": "Holiday preorders are open: what to order and when",
+      "research_rationale": "Portland pie shops ask customers to preorder early because holiday pies sell out (S22); a saveable how-to-order carousel converts that intent. Instagram caps hashtags at 5 (S1).",
+      "source_ids": [
+        "S22",
+        "S1"
+      ],
+      "hook": "Your holiday table, sorted. Preorders are open.",
+      "alt_hooks": [
+        "Don't bake it. Preorder it.",
+        "The pie is the easy part. Let us handle it."
+      ],
+      "caption": "Your holiday table, sorted. 🥧🍞\n\nHoliday pie and bread preorders are open from today until December 20. Pick up December 22, 23 or 24, boxed and ready.\n\nSwipe for what to order, how pickup works and the one date to remember.\n\nSave this so you don't miss the deadline, and send it to whoever is hosting this year.",
+      "cta": "Preorder via the link in bio by Dec 20 — and send this to your host.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#HolidayPie",
+        "#PortlandEats",
+        "#Sourdough",
+        "#Bakery"
+      ],
+      "format": "Carousel",
+      "script": {
+        "type": "carousel",
+        "slides": [
+          {
+            "n": 1,
+            "headline": "Your holiday table, sorted.",
+            "body": "Holiday preorders are open — now until Dec 20."
+          },
+          {
+            "n": 2,
+            "headline": "Seasonal pies",
+            "body": "Our seasonal holiday pies. [Client to confirm flavours & prices]"
+          },
+          {
+            "n": 3,
+            "headline": "Holiday breads",
+            "body": "Slow-fermented loaves for the table. [Client to confirm range]"
+          },
+          {
+            "n": 4,
+            "headline": "Pick your pickup day",
+            "body": "Dec 22, 23 or 24 — choose your day when you order."
+          },
+          {
+            "n": 5,
+            "headline": "Hosting a crowd?",
+            "body": "Ask us what serves how many — we'll help you order right."
+          },
+          {
+            "n": 6,
+            "headline": "One date to remember",
+            "body": "Preorders close Dec 20. Link in bio."
+          }
+        ],
+        "closing_cta": "Preorder by Dec 20 — link in bio"
+      },
+      "alt_text": "Carousel cover: a lattice-topped pie and a sourdough loaf on a cream linen with the words 'Your holiday table, sorted.'",
+      "visual_direction": "Overhead hero of pie and loaf on flour-cream linen for the cover; following slides use simple cream backgrounds with harbour-blue type and small product cut-outs.",
+      "creative_brief": {
+        "id": "CB-2026-12-02",
+        "summary": "Six-slide preorder explainer carousel.",
+        "specs": "4:5, 1080×1350 per slide, PNG/JPG, 6 slides, consistent margins (≥ 80px)",
+        "key_message": "Preorder by Dec 20; pick up Dec 22–24.",
+        "on_screen_copy": "Slide copy exactly as in the script; placeholders in [brackets] must be replaced with client-confirmed details before export.",
+        "mood_and_style": "Warm, tactile, uncluttered; editorial food styling with natural light; flour texture backgrounds.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Cover: overhead pie + loaf on linen",
+          "Slides 2–3: product cut-outs on cream",
+          "Slide 6: bold date treatment in hearth orange"
+        ],
+        "audio_direction": "N/A (carousel)",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Make the Dec 20 deadline the most visible element",
+          "Leave room for price/flavour updates"
+        ],
+        "donts": [
+          "Don't show products the client hasn't confirmed",
+          "No more than 20 words per slide",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-11-24",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Saves ≥ 2% of reach; link taps to preorder (track)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P03",
+      "date": "2026-12-01",
+      "time": "12:00",
+      "platform": "Facebook",
+      "content_pillar": "Holiday Table & Offers",
+      "objective": "Traffic",
+      "topic": "How holiday pickup works (Dec 22–24) — Facebook announcement",
+      "research_rationale": "Local holiday-pie demand sells out early (S22); Facebook is the local-community channel in the strategy, so the clearest logistics live here for neighbours who share in groups.",
+      "source_ids": [
+        "S22"
+      ],
+      "hook": "Holiday preorders are open — here's exactly how pickup works.",
+      "alt_hooks": [
+        "Three steps to a holiday table you didn't have to bake.",
+        "Neighbours: preorders are open!"
+      ],
+      "caption": "Holiday preorders are open — here's exactly how pickup works.\n\n1️⃣ Order your pies and holiday breads online by December 20.\n2️⃣ Choose a pickup day: December 22, 23 or 24.\n3️⃣ Come by the shop, give your name, and we'll hand you everything boxed and ready.\n\nQuestions about how much to order for your group? Comment or message us and a real person will reply.\n\nWe're closed December 25 so our team can enjoy the holiday too.",
+      "cta": "Order online by Dec 20 — comment or message us with questions.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#PortlandEats"
+      ],
+      "format": "Static image",
+      "script": {
+        "type": "none"
+      },
+      "alt_text": "Boxed pies tied with orange string stacked on the bakery counter with a 'Pickup Dec 22–24' tag.",
+      "visual_direction": "Stack of kraft pie boxes tied with hearth-orange string on the counter; a hand-lettered tag reads 'Pickup Dec 22–24'.",
+      "creative_brief": {
+        "id": "CB-2026-12-03",
+        "summary": "Facebook static explaining pickup logistics.",
+        "specs": "4:5, 1080×1350, JPG/PNG (also crops safely to 1:1)",
+        "key_message": "Order by Dec 20, pick up Dec 22–24, closed Dec 25.",
+        "on_screen_copy": "Tag text: 'Pickup Dec 22–24'. Optional overlay: 'Order by Dec 20'.",
+        "mood_and_style": "Practical, friendly, real; product packaging in situ.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Boxed pies on counter, tag in focus",
+          "Alternate crop 1:1 for shares"
+        ],
+        "audio_direction": "N/A (image)",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Make dates legible on mobile"
+        ],
+        "donts": [
+          "No unconfirmed prices",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-11-24",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Link clicks to preorder + comments/questions answered (track)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P04",
+      "date": "2026-12-03",
+      "time": "17:30",
+      "platform": "Instagram",
+      "content_pillar": "Bake Craft & Education",
+      "objective": "Awareness",
+      "topic": "The slow life of a sourdough loaf (process Reel)",
+      "research_rationale": "Instagram's top ranking signals include watch time and sends per reach (S5); a satisfying process Reel holds attention. Consistent baking content helps users who tune 'Your Algorithm' toward food (S4).",
+      "source_ids": [
+        "S5",
+        "S4"
+      ],
+      "hook": "This loaf took longer to make than your last vacation.",
+      "alt_hooks": [
+        "Why our sourdough can't be rushed.",
+        "From flour to crust, slowly."
+      ],
+      "caption": "This loaf took longer to make than your last vacation. (Okay, maybe not. But it feels like it.)\n\nOur sourdough is naturally leavened and fermented slowly, then shaped and scored by hand. That time is where the flavour and the crackly crust come from.\n\nWatch till the crust crackles. Send it to the friend who still buys sliced bread. 😉",
+      "cta": "Send this to a bread lover — and drop by for a warm loaf this weekend.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#Sourdough",
+        "#BreadMaking",
+        "#PortlandEats"
+      ],
+      "format": "Reel",
+      "script": {
+        "type": "reel",
+        "duration_seconds": 25,
+        "scenes": [
+          {
+            "time": "0–3s",
+            "visual": "Extreme close-up: bubbly starter being stirred",
+            "on_screen_text": "This loaf can't be rushed.",
+            "voiceover": "This loaf can't be rushed.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "3–8s",
+            "visual": "Hands mixing dough, slow pull showing gluten stretch",
+            "on_screen_text": "Mix. Wait.",
+            "voiceover": "We mix it, then we wait.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "8–13s",
+            "visual": "Time-lapse of dough rising in a banneton",
+            "on_screen_text": "Slow fermentation = flavour",
+            "voiceover": "The slow ferment is where the flavour comes from.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "13–18s",
+            "visual": "Shaping on floured bench; one decisive score with a lame",
+            "on_screen_text": "Shaped & scored by hand",
+            "voiceover": "Shaped and scored by hand.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "18–23s",
+            "visual": "Oven door opens, steam; loaf pulled out; crust crackle sound",
+            "on_screen_text": "Listen 👂",
+            "voiceover": "And then… this sound.",
+            "audio": "Natural crust crackle (recorded on site)"
+          },
+          {
+            "time": "23–25s",
+            "visual": "Loaf on counter, logo end card",
+            "on_screen_text": "From our oven · Harbor & Hearth",
+            "voiceover": "Come get one warm.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          }
+        ],
+        "closing_cta": "Come get one warm — and send this to a bread lover.",
+        "subtitle_note": "Burn in captions; all VO also shown as on-screen text"
+      },
+      "alt_text": "Video of a sourdough loaf being mixed, risen, scored and baked until the crust crackles.",
+      "visual_direction": "Tight, tactile close-ups; natural light; flour in the air; end on the crackle with a warm, steamy hero shot.",
+      "creative_brief": {
+        "id": "CB-2026-12-04",
+        "summary": "25-second sourdough process Reel.",
+        "specs": "9:16, 1080×1920, 15–30s, MP4 (H.264), keep text out of the top and bottom ~15% (UI overlays); cover frame 1080×1920 with 4:5 safe crop",
+        "key_message": "Slow, hand-made process = flavour.",
+        "on_screen_copy": "As per scene list on-screen text.",
+        "mood_and_style": "ASMR-adjacent tactile food video; macro shots; slow, satisfying cuts on movement.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Starter macro",
+          "Dough stretch",
+          "Rise time-lapse (phone, 1 frame/30s)",
+          "Scoring with lame",
+          "Oven steam + crust crackle with on-site audio",
+          "Logo end card"
+        ],
+        "audio_direction": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO; keep the natural crackle audible",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Record crust crackle as clean on-site audio",
+          "Hook on screen within first second"
+        ],
+        "donts": [
+          "No trending audio unless licensed in-app",
+          "No unrealistic speed claims",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-11-26",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Average watch time ≥ 50% of length; sends per reach (baseline)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P05",
+      "date": "2026-12-08",
+      "time": "08:30",
+      "platform": "LinkedIn",
+      "content_pillar": "Holiday Table & Offers",
+      "objective": "Leads",
+      "topic": "Team breakfasts and client thank-yous: ordering from a local bakery",
+      "research_rationale": "Owner-voiced native posts are favoured over link posts on LinkedIn (S6); local professionals ordering for teams are a defined persona (audience research). Bakery as reward/comfort supports the 'thank-you' angle (S14).",
+      "source_ids": [
+        "S6",
+        "S14"
+      ],
+      "hook": "The best thank-you gift this December might come in a pastry box.",
+      "alt_hooks": [
+        "Ordering for your team this month? A note from a local baker.",
+        "Skip the gift card. Feed the team."
+      ],
+      "caption": "The best thank-you gift this December might come in a pastry box.\n\nIf you're planning a team breakfast or a client thank-you, here's how we can help:\n\n• Tell us your headcount and pickup date (we're doing holiday pickups December 22–24).\n• We'll suggest a mix of pastries or loaves that travels well.\n• You pick it up boxed and labelled, ready for the office.\n\nWe're a small team, so we cap orders to keep quality where it should be. If you're planning something, message me this week.\n\n— Maya, owner",
+      "cta": "Message Maya this week with your headcount and date.",
+      "hashtags": [
+        "#SmallBusiness",
+        "#Portland",
+        "#ShopLocal"
+      ],
+      "format": "Static image",
+      "script": {
+        "type": "none"
+      },
+      "alt_text": "A white pastry box opened to show croissants and morning buns, with a handwritten 'Thank you, team!' card.",
+      "visual_direction": "Open pastry box with croissants and morning buns, a handwritten thank-you card, on a desk-like wooden surface.",
+      "creative_brief": {
+        "id": "CB-2026-12-05",
+        "summary": "LinkedIn image: pastry box as team thank-you.",
+        "specs": "1:1, 1200×1200, JPG/PNG",
+        "key_message": "We make team/client thank-yous easy, with honest capacity.",
+        "on_screen_copy": "No overlay; handwritten card reads 'Thank you, team!'",
+        "mood_and_style": "Clean, bright, office-friendly; still warm and handmade.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Open box overhead",
+          "Hand placing the card"
+        ],
+        "audio_direction": "N/A (image)",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Keep it professional and bright"
+        ],
+        "donts": [
+          "No logos of other companies",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-01",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "≥ 2 team/client order enquiries (test target)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P06",
+      "date": "2026-12-08",
+      "time": "11:00",
+      "platform": "Instagram",
+      "content_pillar": "Bake Craft & Education",
+      "objective": "Engagement",
+      "topic": "How to store sourdough so it stays good (save-worthy guide)",
+      "research_rationale": "Saveable, useful guides fill a gap vs. aesthetics-led competitors (competitor research; S24) and support likes/sends per reach (S5).",
+      "source_ids": [
+        "S24",
+        "S5"
+      ],
+      "hook": "Stop putting your sourdough in the fridge.",
+      "alt_hooks": [
+        "Your bread deserves better than a plastic bag.",
+        "How to keep a loaf happy for days."
+      ],
+      "caption": "Stop putting your sourdough in the fridge. 🙅\n\nIn our experience the fridge dries bread out faster than the counter. Here's how we store ours at home — swipe through and save this for the next loaf.\n\nGot a bread-storage confession? Tell us in the comments. No judgement. (Some judgement.)",
+      "cta": "Save this guide and share your bread-storage confession in the comments.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#Sourdough",
+        "#BreadMaking",
+        "#PortlandEats"
+      ],
+      "format": "Carousel",
+      "script": {
+        "type": "carousel",
+        "slides": [
+          {
+            "n": 1,
+            "headline": "Stop putting your sourdough in the fridge.",
+            "body": "Here's how to keep it good for days instead."
+          },
+          {
+            "n": 2,
+            "headline": "Day 1: cut side down",
+            "body": "Rest the loaf cut-side down on a board. The crust protects the crumb."
+          },
+          {
+            "n": 3,
+            "headline": "Days 2–3: wrap in cloth or paper",
+            "body": "A linen bag or paper bag lets the crust breathe."
+          },
+          {
+            "n": 4,
+            "headline": "Skip the fridge",
+            "body": "In our experience it dries the loaf out. The counter is kinder."
+          },
+          {
+            "n": 5,
+            "headline": "Freeze for later",
+            "body": "Slice, freeze, and toast straight from frozen."
+          },
+          {
+            "n": 6,
+            "headline": "Yesterday's loaf?",
+            "body": "Revive it in a hot oven for a few minutes — tip coming soon."
+          },
+          {
+            "n": 7,
+            "headline": "Save this for your next loaf",
+            "body": "Fresh sourdough from our oven at Harbor & Hearth."
+          }
+        ],
+        "closing_cta": "Save this — and come get your next loaf."
+      },
+      "alt_text": "Carousel cover: a sourdough loaf on a board with a crossed-out refrigerator icon and the words 'Stop putting your sourdough in the fridge.'",
+      "visual_direction": "Simple illustrated-icon carousel on flour-cream background; cover uses a real loaf photo with a bold harbour-blue headline.",
+      "creative_brief": {
+        "id": "CB-2026-12-06",
+        "summary": "Seven-slide bread storage guide.",
+        "specs": "4:5, 1080×1350 per slide, PNG/JPG, 7 slides, consistent margins (≥ 80px)",
+        "key_message": "Store sourdough on the counter, not in the fridge.",
+        "on_screen_copy": "Slide copy exactly as in script.",
+        "mood_and_style": "Clean editorial guide; simple line icons; generous whitespace.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Cover photo: loaf on board",
+          "Line icons: board, cloth bag, fridge-with-cross, freezer, oven"
+        ],
+        "audio_direction": "N/A (carousel)",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Keep icons consistent stroke weight"
+        ],
+        "donts": [
+          "No more than 20 words per slide",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-01",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Saves ≥ 2% of reach (test target)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P07",
+      "date": "2026-12-08",
+      "time": "12:00",
+      "platform": "Facebook",
+      "content_pillar": "Neighbourhood & Community",
+      "objective": "Awareness",
+      "topic": "Fuel up before Saturday's holiday market outing",
+      "research_rationale": "The Nutcracker's Magical Marketplace runs Saturdays Dec 5–19, 2026 (S27) and Portland's December calendar is full of weekend markets (S26); Facebook surfaces fresh Reels to non-followers (S8). Impulse is a leading bakery purchase driver (S13).",
+      "source_ids": [
+        "S27",
+        "S26",
+        "S8",
+        "S13"
+      ],
+      "hook": "Heading to a holiday market this Saturday? Start here.",
+      "alt_hooks": [
+        "Market day starts with a warm croissant.",
+        "Your Saturday market plan, step one."
+      ],
+      "caption": "Heading to a holiday market this Saturday? Start here. ☕🥐\n\nDowntown's Nutcracker's Magical Marketplace is on Saturdays through December 19 (11am–4pm, free). Grab a coffee and a morning bun from us on your way and you'll shop happier — that's not science, just experience.\n\nTag the friend you're going with. 👇",
+      "cta": "Tag your market buddy and stop by for coffee on your way.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#PortlandEats"
+      ],
+      "format": "Reel",
+      "script": {
+        "type": "reel",
+        "duration_seconds": 15,
+        "scenes": [
+          {
+            "time": "0–3s",
+            "visual": "POV walking into the bakery, door bell jingles",
+            "on_screen_text": "Market day? Start here.",
+            "voiceover": "Market day? Start here.",
+            "audio": "Door bell (on-site) + licensed upbeat acoustic"
+          },
+          {
+            "time": "3–8s",
+            "visual": "Coffee poured, morning bun placed in paper bag",
+            "on_screen_text": "Coffee + morning bun",
+            "voiceover": "Coffee and a morning bun to go.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "8–12s",
+            "visual": "Hand holds bag up against a festive street backdrop (shot outside the shop)",
+            "on_screen_text": "Fuel for holiday shopping",
+            "voiceover": "Fuel for the holiday market.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "12–15s",
+            "visual": "End card with logo",
+            "on_screen_text": "See you Saturday · Harbor & Hearth",
+            "voiceover": "See you Saturday.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          }
+        ],
+        "closing_cta": "Tag your market buddy — see you Saturday.",
+        "subtitle_note": "Burn in captions; all VO also shown as on-screen text"
+      },
+      "alt_text": "Video: coffee and a morning bun are bagged to go before a holiday market trip.",
+      "visual_direction": "Bright, quick, POV-style; festive but not branded with the event (no event logos).",
+      "creative_brief": {
+        "id": "CB-2026-12-07",
+        "summary": "15-second 'start your market day here' Reel.",
+        "specs": "9:16, 1080×1920, 15–30s, MP4 (H.264), captions burned in for sound-off viewing",
+        "key_message": "Stop by for coffee and a pastry on your way to the market.",
+        "on_screen_copy": "As per scene list. Opening hours on end card must be client-confirmed.",
+        "mood_and_style": "Upbeat, local, real street light; handheld POV.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "POV entry",
+          "Pour + bagging close-ups",
+          "Bag held up outside (no event logos)",
+          "End card"
+        ],
+        "audio_direction": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Add opening hours to the end card only once the client confirms them"
+        ],
+        "donts": [
+          "Don't use the event's logo or imply partnership",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-01",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Reach to non-followers; tags/comments (baseline)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P08",
+      "date": "2026-12-10",
+      "time": "17:30",
+      "platform": "Instagram",
+      "content_pillar": "Behind the Counter",
+      "objective": "Awareness",
+      "topic": "Before dawn: a day in the life of our head baker",
+      "research_rationale": "People-led content differentiates from legacy and aesthetics-led competitors (S19, S24); day-in-the-life Reels hold watch time (S5).",
+      "source_ids": [
+        "S5",
+        "S19",
+        "S24"
+      ],
+      "hook": "While you were asleep, this happened.",
+      "alt_hooks": [
+        "Meet the person who turns the oven on.",
+        "A baker's day starts in the dark."
+      ],
+      "caption": "While you were asleep, this happened. 🌙➡️🥐\n\nMeet our head baker, the first one in every morning, before it's light. Ovens on, dough checked, croissants shaped, and the first loaves out before the doors open.\n\nSay hi in the comments — they read every one (between batches).",
+      "cta": "Say hi to our baker in the comments.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#Bakery",
+        "#Croissant",
+        "#PortlandEats"
+      ],
+      "format": "Reel",
+      "script": {
+        "type": "reel",
+        "duration_seconds": 30,
+        "scenes": [
+          {
+            "time": "0–3s",
+            "visual": "Dark street, bakery light flicks on",
+            "on_screen_text": "While you were asleep…",
+            "voiceover": "While you were asleep…",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "3–9s",
+            "visual": "Baker ties apron, turns on ovens",
+            "on_screen_text": "Ovens on",
+            "voiceover": "Ovens on, first thing.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "9–16s",
+            "visual": "Checking dough, laminating croissant dough",
+            "on_screen_text": "Check the dough. Fold the butter.",
+            "voiceover": "Check the dough, fold the butter.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "16–24s",
+            "visual": "Shaping croissants; tray into oven; golden croissants out",
+            "on_screen_text": "Shaped by hand",
+            "voiceover": "Every croissant shaped by hand.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "24–30s",
+            "visual": "Door unlocked, first customer greeted; baker waves to camera",
+            "on_screen_text": "…and then you walk in. 👋",
+            "voiceover": "And then you walk in.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          }
+        ],
+        "closing_cta": "Say hi to our baker in the comments.",
+        "subtitle_note": "Burn in captions; all VO also shown as on-screen text"
+      },
+      "alt_text": "Video following the head baker from turning on ovens before dawn to greeting the first customer.",
+      "visual_direction": "Moody pre-dawn blues shifting to warm oven orange — mirrors the harbour-blue/hearth-orange palette.",
+      "creative_brief": {
+        "id": "CB-2026-12-08",
+        "summary": "30-second baker day-in-the-life Reel.",
+        "specs": "9:16, 1080×1920, 15–30s, MP4 (H.264), keep text out of the top and bottom ~15% (UI overlays); cover frame 1080×1920 with 4:5 safe crop",
+        "key_message": "Real people make your bakes, starting before dawn.",
+        "on_screen_copy": "As per scene list.",
+        "mood_and_style": "Cinematic but handheld; colour journey from blue to warm orange.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Exterior light-on",
+          "Apron tie",
+          "Oven switch",
+          "Lamination close-up",
+          "Shaping",
+          "Tray in/out",
+          "Door unlock + greeting"
+        ],
+        "audio_direction": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Get the baker's on-camera consent",
+          "Confirm actual start time before using any time on screen"
+        ],
+        "donts": [
+          "Don't show unsafe practices (hair tied, hygiene visible)",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-03",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Average watch time ≥ 50%; comments (baseline)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P09",
+      "date": "2026-12-15",
+      "time": "08:30",
+      "platform": "LinkedIn",
+      "content_pillar": "Bake Craft & Education",
+      "objective": "Awareness",
+      "topic": "Why we refuse to rush our dough (small-business lesson)",
+      "research_rationale": "Text-led owner posts suit LinkedIn's preference for native content over external links (S6) and support owner-profile amplification (S7).",
+      "source_ids": [
+        "S6",
+        "S7"
+      ],
+      "hook": "The most expensive ingredient in our bread is time.",
+      "alt_hooks": [
+        "Our slowest process is our best business decision.",
+        "What slow dough taught me about growth."
+      ],
+      "caption": "The most expensive ingredient in our bread is time.\n\nWe could make sourdough faster. Plenty of shortcuts exist. But the slow fermentation is where the flavour and the crust come from, and it's the reason people come back.\n\nThat's been the biggest lesson of running a small business: the things you can't rush are usually the things that make you worth choosing.\n\nIn December that means we cap preorders rather than cut corners. It's a harder sell, and a better promise.\n\nWhat's the 'slow ingredient' in your business?",
+      "cta": "Share the 'slow ingredient' in your own business in the comments.",
+      "hashtags": [
+        "#SmallBusiness",
+        "#Craftsmanship",
+        "#Portland"
+      ],
+      "format": "Text post",
+      "script": {
+        "type": "none"
+      },
+      "alt_text": "Optional photo: dough resting in a row of bannetons under linen.",
+      "visual_direction": "Optional supporting photo: row of bannetons resting under linen in soft morning light.",
+      "creative_brief": {
+        "id": "CB-2026-12-09",
+        "summary": "Text-first LinkedIn post with optional photo.",
+        "specs": "Optional supporting photo 1:1, 1200×1200, JPG; post works as text-only",
+        "key_message": "Craft and patience as a business principle.",
+        "on_screen_copy": "None (text post).",
+        "mood_and_style": "Quiet, minimal, documentary photo.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Optional: bannetons under linen"
+        ],
+        "audio_direction": "N/A",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Keep photo optional"
+        ],
+        "donts": [
+          "No stock imagery",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-08",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Comments with replies; owner reshares (baseline)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P10",
+      "date": "2026-12-15",
+      "time": "11:00",
+      "platform": "Instagram",
+      "content_pillar": "Holiday Table & Offers",
+      "objective": "Sales",
+      "topic": "Last call: preorders close Sunday, Dec 20",
+      "research_rationale": "Holiday pies sell out at Portland shops (S22) and the client's preorder deadline is Dec 20 (brief); a short deadline Reel creates urgency. Fresh, timely Reels perform in recommendations (S5).",
+      "source_ids": [
+        "S22",
+        "S5"
+      ],
+      "hook": "Five days. That's how long you have to stop worrying about dessert.",
+      "alt_hooks": [
+        "Last call for holiday pies.",
+        "This is your pie reminder. You're welcome."
+      ],
+      "caption": "Five days. That's how long you have to stop worrying about dessert. ⏳🥧\n\nHoliday preorders close this Sunday, December 20. After that, it's first-come walk-ins only — and we can't promise pie.\n\nOrder now, pick up December 22–24, take all the credit.\n\nSend this to the person in your family who 'forgets' to bring dessert.",
+      "cta": "Preorder via link in bio before Sunday, Dec 20.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#HolidayPie",
+        "#PortlandEats",
+        "#Bakery"
+      ],
+      "format": "Reel",
+      "script": {
+        "type": "reel",
+        "duration_seconds": 15,
+        "scenes": [
+          {
+            "time": "0–3s",
+            "visual": "Countdown card '5 days left' over a pie being crimped",
+            "on_screen_text": "5 days left ⏳",
+            "voiceover": "Five days left.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "3–8s",
+            "visual": "Fast cuts: pies into oven, golden pies out",
+            "on_screen_text": "Holiday pies & breads",
+            "voiceover": "Holiday pies and breads, preorder only.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "8–12s",
+            "visual": "Boxes being tied with orange string",
+            "on_screen_text": "Pick up Dec 22–24",
+            "voiceover": "Pick up December 22 to 24.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "12–15s",
+            "visual": "End card: 'Order by Sun Dec 20 · link in bio'",
+            "on_screen_text": "Order by Sun, Dec 20",
+            "voiceover": "Link in bio.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          }
+        ],
+        "closing_cta": "Order by Sunday, Dec 20 — link in bio.",
+        "subtitle_note": "Burn in captions; all VO also shown as on-screen text"
+      },
+      "alt_text": "Video countdown showing pies being crimped, baked and boxed, with text 'Order by Sun, Dec 20'.",
+      "visual_direction": "Energetic quick cuts; hearth-orange countdown graphics; end on the deadline.",
+      "creative_brief": {
+        "id": "CB-2026-12-10",
+        "summary": "15-second deadline countdown Reel.",
+        "specs": "9:16, 1080×1920, 15–30s, MP4 (H.264), keep text out of the top and bottom ~15% (UI overlays); cover frame 1080×1920 with 4:5 safe crop",
+        "key_message": "Preorders close Sun Dec 20.",
+        "on_screen_copy": "As per scene list.",
+        "mood_and_style": "Fast, rhythmic edit synced to music beats; bold countdown typography.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Pie crimping",
+          "Oven in/out",
+          "Box tying",
+          "Deadline end card"
+        ],
+        "audio_direction": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Deadline legible for ≥ 2 seconds"
+        ],
+        "donts": [
+          "No false scarcity beyond what's true (client to confirm capacity)",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-08",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Link taps; preorders placed Dec 15–20 (client to report)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P11",
+      "date": "2026-12-15",
+      "time": "12:00",
+      "platform": "Facebook",
+      "content_pillar": "Bake Craft & Education",
+      "objective": "Engagement",
+      "topic": "Revive yesterday's loaf in your oven",
+      "research_rationale": "Useful tips are shareable in local Facebook communities; Facebook surfaces fresh short Reels to non-followers (S8, S9). Follows up the storage guide (Dec 8).",
+      "source_ids": [
+        "S8",
+        "S9"
+      ],
+      "hook": "Yesterday's loaf isn't done. It just needs a few minutes in the oven.",
+      "alt_hooks": [
+        "Don't toss that loaf.",
+        "The oven trick every bread lover should know."
+      ],
+      "caption": "Yesterday's loaf isn't done. It just needs a few minutes. 🔥\n\nRun the crust quickly under the tap, pop it in a hot oven for a few minutes, and the crust crackles again. Let it rest briefly before slicing.\n\nShare this with someone who's about to throw out perfectly good bread.",
+      "cta": "Share this tip with a friend — and tell us if it worked.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#Sourdough"
+      ],
+      "format": "Reel",
+      "script": {
+        "type": "reel",
+        "duration_seconds": 20,
+        "scenes": [
+          {
+            "time": "0–3s",
+            "visual": "Slightly stale loaf on counter, sad music sting",
+            "on_screen_text": "Day-old loaf? 😢",
+            "voiceover": "Day-old loaf?",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "3–8s",
+            "visual": "Loaf crust run quickly under the tap",
+            "on_screen_text": "Quick splash of water",
+            "voiceover": "A quick splash of water on the crust.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "8–14s",
+            "visual": "Into hot oven; oven timer",
+            "on_screen_text": "Hot oven, a few minutes",
+            "voiceover": "Into a hot oven for a few minutes.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "14–20s",
+            "visual": "Out of oven, squeeze crackle, slice",
+            "on_screen_text": "Crackly again ✨ Share this tip",
+            "voiceover": "Crackly again. Share this with a friend.",
+            "audio": "Crust crackle on-site + licensed music"
+          }
+        ],
+        "closing_cta": "Share this tip with a friend.",
+        "subtitle_note": "Burn in captions; all VO also shown as on-screen text"
+      },
+      "alt_text": "Video showing a day-old loaf splashed with water, reheated in the oven and sliced with a crackling crust.",
+      "visual_direction": "Home-kitchen look (not the bakery) to make it feel doable; warm light.",
+      "creative_brief": {
+        "id": "CB-2026-12-11",
+        "summary": "20-second bread revival tip Reel.",
+        "specs": "9:16, 1080×1920, 15–30s, MP4 (H.264), captions burned in for sound-off viewing",
+        "key_message": "Revive day-old bread with water and a hot oven.",
+        "on_screen_copy": "As per scene list (no exact temperatures unless baker confirms).",
+        "mood_and_style": "Homey, approachable kitchen setting; warm tones.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Stale loaf",
+          "Tap splash",
+          "Oven in",
+          "Crackle + slice"
+        ],
+        "audio_direction": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Baker to confirm the method and timing before filming"
+        ],
+        "donts": [
+          "Don't state specific temperatures/times without baker sign-off",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-08",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Shares (baseline); comments",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P12",
+      "date": "2026-12-17",
+      "time": "17:30",
+      "platform": "Instagram",
+      "content_pillar": "Bake Craft & Education",
+      "objective": "Engagement",
+      "topic": "Build a holiday bread board (save-worthy guide)",
+      "research_rationale": "Indulgence and size variety are 2026 bakery trends (S11, S12); a saveable entertaining guide fits the Holiday Host persona and supports saves/sends (S5).",
+      "source_ids": [
+        "S11",
+        "S12",
+        "S5"
+      ],
+      "hook": "The easiest showstopper on your holiday table isn't the pie.",
+      "alt_hooks": [
+        "How to build a bread board people talk about.",
+        "One loaf. Five minutes. Instant table centrepiece."
+      ],
+      "caption": "The easiest showstopper on your holiday table isn't the pie. It's the bread board. 🍞✨\n\nSwipe for our five-step board: one great loaf, something salty, something sweet, something crunchy, and a knife people actually want to use.\n\nSave it for the big day and send it to whoever's hosting.",
+      "cta": "Save this for the big day — and send it to your host.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#Sourdough",
+        "#PortlandEats",
+        "#Bakery"
+      ],
+      "format": "Carousel",
+      "script": {
+        "type": "carousel",
+        "slides": [
+          {
+            "n": 1,
+            "headline": "The holiday bread board",
+            "body": "Your easiest showstopper. 5 steps."
+          },
+          {
+            "n": 2,
+            "headline": "1. Start with one great loaf",
+            "body": "Slice half, leave half whole for drama."
+          },
+          {
+            "n": 3,
+            "headline": "2. Add something salty",
+            "body": "Good butter, flaky salt, a sharp cheese."
+          },
+          {
+            "n": 4,
+            "headline": "3. Add something sweet",
+            "body": "Honey, jam or seasonal fruit."
+          },
+          {
+            "n": 5,
+            "headline": "4. Add something crunchy",
+            "body": "Toasted nuts or crisp crackers."
+          },
+          {
+            "n": 6,
+            "headline": "5. Make it easy to serve",
+            "body": "Board, knife, small spoons — done."
+          },
+          {
+            "n": 7,
+            "headline": "Need the loaf?",
+            "body": "Holiday breads available for preorder until Dec 20."
+          }
+        ],
+        "closing_cta": "Save this — and preorder your loaf by Dec 20."
+      },
+      "alt_text": "Carousel cover: a wooden board with a half-sliced sourdough loaf, butter, honey and fruit.",
+      "visual_direction": "Overhead styled board on wooden table, step-by-step build across slides (same angle, adding one element per slide).",
+      "creative_brief": {
+        "id": "CB-2026-12-12",
+        "summary": "Seven-slide holiday bread board build-up carousel.",
+        "specs": "4:5, 1080×1350 per slide, PNG/JPG, 7 slides, consistent margins (≥ 80px)",
+        "key_message": "Make a showstopper board around one great loaf.",
+        "on_screen_copy": "Slide copy exactly as in script.",
+        "mood_and_style": "Overhead, consistent framing; layered build (stop-motion feel across slides); warm festive props, minimal.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Locked-off overhead camera",
+          "Add one element per slide",
+          "Final slide: loaf product shot with deadline"
+        ],
+        "audio_direction": "N/A (carousel)",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Keep the same camera position for all slides"
+        ],
+        "donts": [
+          "Don't feature allergen-free claims",
+          "No alcohol in props",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-10",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Saves ≥ 2% of reach; sends per reach (baseline)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P13",
+      "date": "2026-12-22",
+      "time": "08:30",
+      "platform": "LinkedIn",
+      "content_pillar": "Behind the Counter",
+      "objective": "Community",
+      "topic": "Thank you to our team during pickup week",
+      "research_rationale": "People-led owner posts fit LinkedIn's personal-profile and native-content preference (S6, S7); recognising staff builds employer and community goodwill.",
+      "source_ids": [
+        "S6",
+        "S7"
+      ],
+      "hook": "This week, our team will hand over every holiday order by name.",
+      "alt_hooks": [
+        "The people behind every pie box.",
+        "Pickup week, and a thank-you."
+      ],
+      "caption": "This week, our team will hand over every holiday order by name.\n\nBehind each box: early starts, careful packing, and a lot of 'is this the right pie?' double-checks. Small teams carry big seasons, and I'm grateful for ours.\n\nIf you're picking up an order December 22–24 — thank you for planning ahead with us. If you're a small-business owner in a busy season too: go thank your team today.\n\n— Maya",
+      "cta": "Tag a team that's carrying a busy season.",
+      "hashtags": [
+        "#SmallBusiness",
+        "#TeamWork",
+        "#Portland"
+      ],
+      "format": "Static image",
+      "script": {
+        "type": "none"
+      },
+      "alt_text": "The bakery team stands behind a counter stacked with tied pie boxes, smiling.",
+      "visual_direction": "Group photo of the team behind a counter of tied boxes; natural, candid, everyone in aprons.",
+      "creative_brief": {
+        "id": "CB-2026-12-13",
+        "summary": "LinkedIn team appreciation photo.",
+        "specs": "1:1, 1200×1200, JPG/PNG",
+        "key_message": "Gratitude to the team during pickup week.",
+        "on_screen_copy": "No overlay.",
+        "mood_and_style": "Candid group portrait, warm and natural.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Team behind counter of boxes",
+          "Alt: hands passing a box to a customer"
+        ],
+        "audio_direction": "N/A (image)",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Get consent from every person pictured"
+        ],
+        "donts": [
+          "No customer faces without consent",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-15",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Reactions/comments; reshares (baseline)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P14",
+      "date": "2026-12-22",
+      "time": "11:00",
+      "platform": "Instagram",
+      "content_pillar": "Holiday Table & Offers",
+      "objective": "Retention",
+      "topic": "Packing your preorder: what happens before you pick up",
+      "research_rationale": "Pickup days Dec 22–24 (brief); behind-the-scenes Reels hold watch time (S5) and make the preorder experience memorable, encouraging repeat orders.",
+      "source_ids": [
+        "S5"
+      ],
+      "hook": "POV: your pie, about 10 minutes before you pick it up.",
+      "alt_hooks": [
+        "Here's what happens to your order before you arrive.",
+        "Your preorder, packed with care."
+      ],
+      "caption": "POV: your pie, about 10 minutes before you pick it up. 📦🥧\n\nChecked, boxed, tied, labelled with your name. Pickup runs today through December 24 — bring your order name and we'll do the rest.\n\nThank you for planning your holiday table with us. 🧡",
+      "cta": "Pick up Dec 22–24 — bring your order name.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#HolidayPie",
+        "#PortlandEats"
+      ],
+      "format": "Reel",
+      "script": {
+        "type": "reel",
+        "duration_seconds": 15,
+        "scenes": [
+          {
+            "time": "0–3s",
+            "visual": "Pie cooling on rack; label with a name being written",
+            "on_screen_text": "POV: your pie 📦",
+            "voiceover": "This is your pie.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "3–8s",
+            "visual": "Pie boxed, string tied in a bow",
+            "on_screen_text": "Checked. Boxed. Tied.",
+            "voiceover": "Checked, boxed and tied.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "8–12s",
+            "visual": "Box placed on 'Pickup' shelf in alphabetical order",
+            "on_screen_text": "Waiting with your name on it",
+            "voiceover": "Waiting with your name on it.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "12–15s",
+            "visual": "Handover to customer's hands (no face) + end card",
+            "on_screen_text": "Pickup Dec 22–24",
+            "voiceover": "See you at pickup.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          }
+        ],
+        "closing_cta": "Pick up Dec 22–24 — bring your order name.",
+        "subtitle_note": "Burn in captions; all VO also shown as on-screen text"
+      },
+      "alt_text": "Video of a pie being labelled, boxed, tied with string and handed over at pickup.",
+      "visual_direction": "Calm, satisfying, orderly; warm counter light; use fictional placeholder names on labels.",
+      "creative_brief": {
+        "id": "CB-2026-12-14",
+        "summary": "15-second packing POV Reel.",
+        "specs": "9:16, 1080×1920, 15–30s, MP4 (H.264), keep text out of the top and bottom ~15% (UI overlays); cover frame 1080×1920 with 4:5 safe crop",
+        "key_message": "Your order is prepared with care and ready by name.",
+        "on_screen_copy": "As per scene list.",
+        "mood_and_style": "Calm, ASMR-like packing sequence.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Label writing (placeholder name)",
+          "Boxing + tying",
+          "Pickup shelf",
+          "Hands-only handover"
+        ],
+        "audio_direction": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Use placeholder names only"
+        ],
+        "donts": [
+          "Never show real customer names or faces without consent",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-15",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Average watch time ≥ 50%; positive comments (baseline)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P15",
+      "date": "2026-12-22",
+      "time": "12:00",
+      "platform": "Facebook",
+      "content_pillar": "Holiday Table & Offers",
+      "objective": "Retention",
+      "topic": "Pickup info card: dates, walk-ins and Christmas Day closure",
+      "research_rationale": "Clear logistics reduce no-shows and questions during pickup (brief: pickup Dec 22–24, closed Dec 25); Facebook is the local info channel in the strategy. Holiday-season demand context (S22).",
+      "source_ids": [
+        "S22"
+      ],
+      "hook": "Picking up a holiday order? Here's everything you need.",
+      "alt_hooks": [
+        "Pickup week is here!",
+        "Your holiday pickup cheat sheet."
+      ],
+      "caption": "Picking up a holiday order? Here's everything you need. 📌\n\n• Pickup: December 22, 23 or 24\n• Bring: the name on your order\n• Walk-ins: welcome, while things last (no promises on pie!)\n• Closed: December 25\n\nQuestions? Comment or message us — we're answering all week.",
+      "cta": "Save this post and message us with any pickup questions.",
+      "hashtags": [
+        "#HarborAndHearth"
+      ],
+      "format": "Static image",
+      "script": {
+        "type": "none"
+      },
+      "alt_text": "Info card in harbour blue and cream listing pickup days Dec 22–24, what to bring, walk-ins, and closed Dec 25.",
+      "visual_direction": "Clean info-card graphic in brand colours with a small illustrated pie icon.",
+      "creative_brief": {
+        "id": "CB-2026-12-15",
+        "summary": "Facebook pickup info card.",
+        "specs": "4:5, 1080×1350, JPG/PNG (also crops safely to 1:1)",
+        "key_message": "Pickup Dec 22–24; bring your order name; closed Dec 25.",
+        "on_screen_copy": "Exactly the four bullet points from the caption, on the card.",
+        "mood_and_style": "Clear, friendly, high-contrast information design.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Single graphic; alt 1:1 version"
+        ],
+        "audio_direction": "N/A (image)",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "High contrast; large type"
+        ],
+        "donts": [
+          "No small print",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-15",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Saves/shares; fewer repeated pickup questions (qualitative)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P16",
+      "date": "2026-12-24",
+      "time": "17:30",
+      "platform": "Instagram",
+      "content_pillar": "Neighbourhood & Community",
+      "objective": "Community",
+      "topic": "Holiday greeting from our oven to your table",
+      "research_rationale": "Bakery as emotional comfort and reward (S14); a warm greeting deepens community connection on the last pickup day; Instagram ranking rewards likes per reach (S5).",
+      "source_ids": [
+        "S14",
+        "S5"
+      ],
+      "hook": "From our oven to your table — thank you, neighbours.",
+      "alt_hooks": [
+        "The oven's off. The table's yours.",
+        "Happy holidays from all of us."
+      ],
+      "caption": "From our oven to your table — thank you, neighbours. 🧡\n\nThe last boxes are out, the oven is cooling, and the floor is (mostly) swept. We're closed tomorrow, December 25, so our team can be with their people too.\n\nHowever you celebrate, we hope there's something warm on your table.",
+      "cta": "Tell us what's on your table this year.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#PortlandEats",
+        "#Bakery"
+      ],
+      "format": "Static image",
+      "script": {
+        "type": "none"
+      },
+      "alt_text": "A warm-lit, empty bakery counter with a single loaf and a handwritten 'Thank you, neighbours' sign.",
+      "visual_direction": "Quiet, golden-hour shot of the empty counter with a single loaf and a handwritten thank-you sign; inclusive, non-denominational styling.",
+      "creative_brief": {
+        "id": "CB-2026-12-16",
+        "summary": "Instagram holiday greeting photo.",
+        "specs": "4:5, 1080×1350, JPG/PNG",
+        "key_message": "Thank you, neighbours; closed Dec 25.",
+        "on_screen_copy": "Handwritten sign: 'Thank you, neighbours'.",
+        "mood_and_style": "Quiet, cosy, golden light; inclusive holiday feel (no religious iconography).",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Empty counter, single loaf, sign",
+          "Optional: oven door with glow"
+        ],
+        "audio_direction": "N/A (image)",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Keep it inclusive of all celebrations"
+        ],
+        "donts": [
+          "No religious-specific imagery",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-17",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Likes per reach; comments (baseline)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P17",
+      "date": "2026-12-29",
+      "time": "08:30",
+      "platform": "LinkedIn",
+      "content_pillar": "Neighbourhood & Community",
+      "objective": "Community",
+      "topic": "Lessons from a holiday rush: capacity, honesty and neighbours",
+      "research_rationale": "End-of-year owner reflection suits LinkedIn's native, personal-profile-led content (S6, S7) and reinforces the local small-business story.",
+      "source_ids": [
+        "S6",
+        "S7"
+      ],
+      "hook": "Three things a holiday rush teaches a small bakery.",
+      "alt_hooks": [
+        "What December taught us (again).",
+        "A small-business year-end reflection."
+      ],
+      "caption": "Three things a holiday rush teaches a small bakery:\n\n1. Say your limits out loud early. Capping orders protects quality and the team.\n2. Logistics are part of the product. A clear pickup plan matters as much as the pie.\n3. Neighbours notice effort. [Owner: add one real moment from pickup week before posting.]\n\nThank you to everyone who ordered, shared, or just stopped in for coffee. On to the new year — slowly, as always.\n\n— Maya",
+      "cta": "Share one lesson your busiest season taught you.",
+      "hashtags": [
+        "#SmallBusiness",
+        "#Leadership",
+        "#Portland"
+      ],
+      "format": "Text post",
+      "script": {
+        "type": "none"
+      },
+      "alt_text": "Optional photo: the owner smiling behind the counter at the end of a busy day.",
+      "visual_direction": "Optional portrait of the owner at day's end, relaxed and warm.",
+      "creative_brief": {
+        "id": "CB-2026-12-17",
+        "summary": "Text-first LinkedIn reflection post.",
+        "specs": "Optional supporting photo 1:1, 1200×1200, JPG; post works as text-only",
+        "key_message": "Honest small-business lessons from the holiday season.",
+        "on_screen_copy": "None.",
+        "mood_and_style": "Relaxed end-of-day portrait if used.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Optional owner portrait"
+        ],
+        "audio_direction": "N/A",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Keep it genuine"
+        ],
+        "donts": [
+          "No invented sales results",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-22",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Comments; owner reshares (baseline)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P18",
+      "date": "2026-12-29",
+      "time": "11:00",
+      "platform": "Instagram",
+      "content_pillar": "Bake Craft & Education",
+      "objective": "Awareness",
+      "topic": "Why we score our bread (the slash explained)",
+      "research_rationale": "Process content earns watch time and sends (S5); a satisfying 'why' explainer fills the education gap vs. competitors (competitor research; S21).",
+      "source_ids": [
+        "S5",
+        "S21"
+      ],
+      "hook": "That slash on top of your bread isn't decoration.",
+      "alt_hooks": [
+        "Why bakers cut their loaves before baking.",
+        "One cut, a lot of science."
+      ],
+      "caption": "That slash on top of your bread isn't decoration. (Okay, it's a little bit decoration.) 🔪🍞\n\nScoring gives the loaf a controlled place to expand in the oven, so it rises where we want it to instead of bursting wherever it likes. Each baker's pattern is a bit like a signature.\n\nWhich score is your favourite — 1, 2 or 3? Comment below.",
+      "cta": "Vote for your favourite score pattern in the comments.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#Sourdough",
+        "#BreadMaking",
+        "#Bakery"
+      ],
+      "format": "Reel",
+      "script": {
+        "type": "reel",
+        "duration_seconds": 20,
+        "scenes": [
+          {
+            "time": "0–3s",
+            "visual": "Slow-mo blade slicing dough",
+            "on_screen_text": "That slash isn't decoration.",
+            "voiceover": "That slash isn't just decoration.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "3–9s",
+            "visual": "Three loaves scored with different patterns, labelled 1/2/3",
+            "on_screen_text": "Pattern 1 · 2 · 3",
+            "voiceover": "It gives the loaf a place to expand.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "9–15s",
+            "visual": "Oven time-lapse of 'ear' opening on a loaf",
+            "on_screen_text": "Controlled rise",
+            "voiceover": "So it rises where we want.",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          },
+          {
+            "time": "15–20s",
+            "visual": "Three finished loaves side by side",
+            "on_screen_text": "Pick your favourite: 1, 2 or 3?",
+            "voiceover": "Which one's your favourite?",
+            "audio": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO"
+          }
+        ],
+        "closing_cta": "Vote 1, 2 or 3 in the comments.",
+        "subtitle_note": "Burn in captions; all VO also shown as on-screen text"
+      },
+      "alt_text": "Video of three loaves scored with different patterns, baked, and shown side by side numbered 1 to 3.",
+      "visual_direction": "Macro slow-motion of the blade; clean side-by-side finale with numbered labels in hearth orange.",
+      "creative_brief": {
+        "id": "CB-2026-12-18",
+        "summary": "20-second scoring explainer Reel.",
+        "specs": "9:16, 1080×1920, 15–30s, MP4 (H.264), keep text out of the top and bottom ~15% (UI overlays); cover frame 1080×1920 with 4:5 safe crop",
+        "key_message": "Scoring controls how the loaf rises.",
+        "on_screen_copy": "As per scene list.",
+        "mood_and_style": "Macro, slow-motion, satisfying; clean finale composition.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Slow-mo scoring (phone 120/240fps)",
+          "Three patterns labelled",
+          "Oven time-lapse",
+          "Side-by-side finale"
+        ],
+        "audio_direction": "Licensed or in-app library audio only; warm acoustic/lo-fi, low volume under VO",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Label patterns clearly"
+        ],
+        "donts": [
+          "No exaggerated science claims",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-22",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Comments (votes); average watch time ≥ 50%",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P19",
+      "date": "2026-12-29",
+      "time": "12:00",
+      "platform": "Facebook",
+      "content_pillar": "Bake Craft & Education",
+      "objective": "Engagement",
+      "topic": "Leftover holiday bread? Three easy ideas",
+      "research_rationale": "Practical, shareable tips suit Facebook's local community use; post-holiday leftovers are timely. Complements the storage and revival tips (Dec 8, Dec 15). Facebook recommends fresh content to non-followers (S8).",
+      "source_ids": [
+        "S8"
+      ],
+      "hook": "Too much bread after the holidays? Lucky you.",
+      "alt_hooks": [
+        "Three things to do with leftover bread.",
+        "Don't waste the good stuff."
+      ],
+      "caption": "Too much bread after the holidays? Lucky you. 😄\n\nThree easy ideas:\n🥖 Croutons — cube, toss in olive oil and salt, bake until golden.\n🍮 Bread pudding — a cosy dessert for the days between holidays.\n🧀 Toasties — leftover cheese + good bread = lunch sorted.\n\nWhat's your favourite way to use up bread? Share it below!",
+      "cta": "Share your favourite leftover-bread idea in the comments.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#PortlandEats"
+      ],
+      "format": "Static image",
+      "script": {
+        "type": "none"
+      },
+      "alt_text": "Three small plates: golden croutons, a slice of bread pudding, and a toasted cheese sandwich.",
+      "visual_direction": "Overhead trio of three small plates on a wooden table, each labelled with a small hand-written tag.",
+      "creative_brief": {
+        "id": "CB-2026-12-19",
+        "summary": "Facebook leftover-bread ideas photo.",
+        "specs": "4:5, 1080×1350, JPG/PNG (also crops safely to 1:1)",
+        "key_message": "Use leftover bread in three easy ways.",
+        "on_screen_copy": "Optional small tags: 'Croutons', 'Bread pudding', 'Toasties'.",
+        "mood_and_style": "Homey, overhead, natural light.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Overhead trio of plates"
+        ],
+        "audio_direction": "N/A (image)",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Make each dish identifiable"
+        ],
+        "donts": [
+          "No nutrition claims",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-22",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Comments; shares (baseline)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    },
+    {
+      "id": "P20",
+      "date": "2026-12-31",
+      "time": "17:30",
+      "platform": "Instagram",
+      "content_pillar": "Neighbourhood & Community",
+      "objective": "Community",
+      "topic": "Thank you, neighbours: our December in bakes",
+      "research_rationale": "Year-end gratitude content builds loyalty; bakery as comfort/reward resonates (S14). Carousel recap supports likes and saves (S5). Reminds followers the shop is closed Jan 1 (brief).",
+      "source_ids": [
+        "S14",
+        "S5"
+      ],
+      "hook": "Our December, one bake at a time.",
+      "alt_hooks": [
+        "Thank you for a warm December.",
+        "A month of early starts, in pictures."
+      ],
+      "caption": "Our December, one bake at a time. 🧡\n\nThank you for every preorder, every 'the usual, please', and every comment on our baker's early-morning videos. You made our oven feel like the neighbourhood's.\n\nWe're closed January 1. See you in the new year. [Client to confirm reopening date]",
+      "cta": "Tell us your favourite bake of the month in the comments.",
+      "hashtags": [
+        "#HarborAndHearth",
+        "#PortlandEats",
+        "#Bakery"
+      ],
+      "format": "Carousel",
+      "script": {
+        "type": "carousel",
+        "slides": [
+          {
+            "n": 1,
+            "headline": "Our December, one bake at a time",
+            "body": "Thank you, neighbours."
+          },
+          {
+            "n": 2,
+            "headline": "The slow loaves",
+            "body": "Fermented slowly, shaped by hand."
+          },
+          {
+            "n": 3,
+            "headline": "The early starts",
+            "body": "Ovens on before the city wakes."
+          },
+          {
+            "n": 4,
+            "headline": "The holiday boxes",
+            "body": "Packed with your name on them."
+          },
+          {
+            "n": 5,
+            "headline": "The regulars",
+            "body": "'The usual, please' never gets old."
+          },
+          {
+            "n": 6,
+            "headline": "See you in the new year",
+            "body": "Closed Jan 1 · see you soon after."
+          }
+        ],
+        "closing_cta": "Tell us your favourite bake of the month."
+      },
+      "alt_text": "Carousel cover: a collage of loaves, pies and the bakery team with the words 'Our December, one bake at a time.'",
+      "visual_direction": "Recap of December's best frames (re-use stills from earlier shoots); consistent cream border and harbour-blue captions.",
+      "creative_brief": {
+        "id": "CB-2026-12-20",
+        "summary": "Six-slide December recap carousel.",
+        "specs": "4:5, 1080×1350 per slide, PNG/JPG, 6 slides, consistent margins (≥ 80px)",
+        "key_message": "Gratitude for a warm December; closed Jan 1.",
+        "on_screen_copy": "Slide copy exactly as in script.",
+        "mood_and_style": "Warm recap; reuse stills from earlier shoots; consistent framing.",
+        "colour_palette": "Harbour blue #1F3A5F, hearth orange #D9822B, flour cream #F4EDE1 (brand kit)",
+        "typography": "Serif headline (brand serif from Canva Brand Kit), clean sans-serif body; min 28pt on-screen text for mobile",
+        "assets": "Logo lockup from Canva Brand Kit; bakery phone footage library; natural window-light photography",
+        "shot_list": [
+          "Select best stills from Dec shoots",
+          "No customer faces without consent"
+        ],
+        "audio_direction": "N/A (carousel)",
+        "accessibility": "Burned-in captions on all video; text/background contrast ≥ WCAG AA; alt text supplied in calendar",
+        "dos": [
+          "Reuse approved assets only"
+        ],
+        "donts": [
+          "Don't include unapproved customer photos",
+          "No health claims (e.g. 'healthy', 'guilt-free')"
+        ],
+        "deadline": "2026-12-24",
+        "reviewer": "Maya, Owner (fictional)"
+      },
+      "kpi_objective": "Likes per reach; comments (baseline)",
+      "approval_status": "Pending Review",
+      "approved_by": "",
+      "reviewer_comments": ""
+    }
+  ]
+}
