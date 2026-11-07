@@ -1,3 +1,5 @@
+> **SUPERSEDED (2026-11-07):** this v1 working file is kept for audit only. Final, verified deliverables are in `07_delivery/` (Word/Excel), and the verified source register is `01_research/sources.md` (v2). Do not use v1 claims or competitors.
+
 # Apex Web Studios — Organic Social Media Strategy
 
 - **Version:** v1

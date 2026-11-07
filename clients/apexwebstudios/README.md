@@ -5,11 +5,15 @@
 | Client | Apex Web Studios — https://apexwebstudios.net/ (HQ Milton, ON; offices in LA and Birmingham, UK) |
 | Slug | `apexwebstudios` |
 | Current month | **2026-12** |
-| Stage reached | 10 of 12: QA complete. Stages 11–12 (Drive/Sheets, Slack) are `Pending integration`. |
-| Approval state | **18 of 18 posts Pending Review.** Nothing scheduled or published. |
+| Stage reached | **Final package delivered (v2, 2026-11-07)**: Word and Excel files in `07_delivery/` |
+| Approval state | **18 of 18 posts Pending Review.** Nothing scheduled or published. 11 posts ready for review; 7 blocked on client inputs. |
 | Review requested by | 2026-11-20, which leaves time for production before Dec 1 |
 
-## Deliverables (2026-12, v1)
+## FINAL deliverables (2026-12, v2)
+
+See [`07_delivery/delivery_log.md`](07_delivery/delivery_log.md). The six Word/Excel files in `07_delivery/` supersede the v1 markdown below.
+
+## v1 working files (superseded)
 
 - Onboarding: [`00_onboarding/brief.md`](00_onboarding/brief.md) (includes 11 batched questions with defaults)
 - Research: [`01_research/`](01_research/) — brand analysis, audience & market, competitors (provisional), trends, source register

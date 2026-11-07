@@ -1,35 +1,39 @@
 # Apex Web Studios — Delivery Log
 
-| Date | Month | Item | Version | Location | Status |
-|---|---|---|---|---|---|
-| 2026-11-07 | 2026-12 | Research (brand, audience/market, competitors, trends, sources) | v1 | `clients/apexwebstudios/01_research/` (git branch `claude/gifted-allen-q00054`) | Delivered locally |
-| 2026-11-07 | 2026-12 | Organic strategy | v1 | `02_strategy/organic_strategy.md` | Pending Review |
-| 2026-11-07 | 2026-12 | Content calendar (18 posts) | v1 | `03_calendar/apexwebstudios_calendar_2026-12_v1.csv` | Pending Review |
-| 2026-11-07 | 2026-12 | Content (hooks, captions, scripts, slides, alt text) | v1 | `04_content/apexwebstudios_content_2026-12_v1.md` | Pending Review |
-| 2026-11-07 | 2026-12 | Creative briefs CB-2026-12-01…18 | v1 | `05_creative_briefs/apexwebstudios_briefs_2026-12_v1.md` | Pending Review |
-| 2026-11-07 | 2026-12 | QA report | v1 | `06_qa/apexwebstudios_qa_2026-12_v1.md` | Passed with holds |
+## Final package: December 2026 (v2), delivered 2026-11-07
 
-## Google Drive / Sheets — `Pending integration`
+**Status:** every post is `Pending Review`. Nothing is scheduled or published.
 
-The integrations are not built yet (CLAUDE.md §7). Once authorized, upload to `Organic Social — Apex Web Studios`, and create the Sheet `Apex Web Studios — Content Calendar` with tab `2026-12`. The CSV imports directly; then add an Approval Status dropdown and a Reviewer Comments column.
+| # | Deliverable | File | Check |
+|---|---|---|---|
+| 1 | Organic Social Media Strategy | `apexwebstudios_organic-social-strategy_2026-12_final.docx` | Validated · renders to 11 pages |
+| 2 | December 2026 Content Calendar | `apexwebstudios_content-calendar_2026-12_final.xlsx` | 6 sheets · 18 posts × 16 standard columns + review fields · 0 formula errors · approval dropdown |
+| 3 | Captions, Hooks, CTAs & Hashtags | `apexwebstudios_captions-hooks-ctas-hashtags_2026-12_final.docx` | Validated · 39 pages |
+| 4 | Reel Scripts & Carousel Content | `apexwebstudios_reel-scripts-carousel-content_2026-12_final.docx` | Validated · 21 pages |
+| 5 | Creative Briefs (designers & editors) | `apexwebstudios_creative-briefs_2026-12_final.docx` | Validated · 29 pages |
+| 6 | Competitor & Trend Research Report | `apexwebstudios_competitor-trend-research_2026-12_final.docx` | Validated · 9 pages |
 
-## Slack — `Pending integration` (draft for the operator to send)
+- **Supporting files:**
+  - `03_calendar/apexwebstudios_calendar_2026-12_v2.csv` (plain 16-column export)
+  - `01_research/sources.md` (verified source register)
+- **Rebuild:** `python3 07_delivery/_build/build.py`, then `node 07_delivery/_build/render_docx.js` for each spec.
+
+## Plan summary
+
+- **18 posts in total:**
+  - Standard plan (recommended): 17 posts, about 4 per week.
+  - Lite plan: 8 posts.
+  - Reserve: 1 optional post.
+- **Platforms:** LinkedIn 8, Instagram cross-posted to Facebook 10.
+- **Readiness:** 11 posts are ready for review; 7 are blocked until the client supplies inputs (permissions, team members on camera, holiday hours).
+
+## Approval message (for the operator to send through their usual channel)
 
 ```
-:calendar: Apex Web Studios — Organic Social Content for December 2026 is ready for review.
-
-• Posts: 18 across LinkedIn (8) and Instagram + Facebook cross-post (10)
-• Pillar mix: Educate 39% · Behind the Build 22% · Offers 17% · Proof 11% · Community 11%
-• Key dates/trends covered: post-Cyber Monday checks (Dec 1), Intl. Day of Persons with Disabilities (Dec 3), Hanukkah (Dec 4), AI search & Google AI Mode, AI builders vs agency, holidays, 2027 planning
-• QA: passed (5 issues fixed; 8 source checks + 10 client-input holds open)
-
-:page_facing_up: Calendar: clients/apexwebstudios/03_calendar/apexwebstudios_calendar_2026-12_v1.csv (Sheet pending integration)
-:file_folder: Folder: clients/apexwebstudios/ on branch claude/gifted-allen-q00054 (Drive pending integration)
-
-Please review and set Approval Status for each post (Approved / Changes Requested / Rejected) by 2026-11-20.
-Nothing will be published until it is marked Approved.
+Apex Web Studios — Organic Social Content for December 2026 is ready for review.
+• 17 posts (Standard plan) + 1 reserve across LinkedIn and Instagram/Facebook; Lite option = 8 posts
+• Pillars: Educate 7 · Behind the Build 3(+1) · Offers 3 · Proof 2 · Community 2
+• Anchors: post-Cyber Monday checks, Intl. Day of Persons with Disabilities (Dec 3), Hanukkah, AI search, pricing transparency, holidays, 2027 planning
+• QA: passed; all statistics verified and linked; 7 posts await client inputs
+Please set Approval Status per post in the Excel calendar. Nothing will be published until it is marked Approved.
 ```
-
-| Sent at | Recipients | By |
-|---|---|---|
-| — | — | Not sent (no Slack integration) |
